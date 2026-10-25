@@ -32,19 +32,19 @@
         <sounds filename="sound1210G.xml" volumeFactor="0.8"/>
         <size width="3" length="12.6" height="3.85" lengthOffset="2.13"/>
         <components>
-            <component centerOfMass="0 0.5 3.5"  solverIterationCount="40" mass="4500"/>
-            <component centerOfMass="0 0.5 -2" solverIterationCount="40" mass="4500"/>
+            <component centerOfMass="0 0.3 3.5"  solverIterationCount="40" mass="2200"/>
+            <component centerOfMass="0 0.3 -2" solverIterationCount="40" mass="2200"/>
 
-            <component centerOfMass="0.12 0 0"  solverIterationCount="40" mass="2050" inertiaScale="4 1 6"/>
-            <component centerOfMass="-0.12 0 0" solverIterationCount="40" mass="2050" inertiaScale="4 1 6"/>
-            <component centerOfMass="0.12 0 0"  solverIterationCount="40" mass="2050" inertiaScale="4 1 6"/>
-            <component centerOfMass="-0.12 0 0" solverIterationCount="40" mass="2050" inertiaScale="4 1 6"/>
+            <component centerOfMass="0.35 0 0"  solverIterationCount="40" mass="3200" inertiaScale="4 1 6"/>
+            <component centerOfMass="-0.35 0 0" solverIterationCount="40" mass="3200" inertiaScale="4 1 6"/>
+            <component centerOfMass="0.35 0 0"  solverIterationCount="40" mass="3200" inertiaScale="4 1 6"/>
+            <component centerOfMass="-0.35 0 0" solverIterationCount="40" mass="3200" inertiaScale="4 1 6"/>
 
             <component centerOfMass="0 -0.4 0"     solverIterationCount="20" mass="260"/>
             <component                            solverIterationCount="20" mass="210"/>
             <component                            solverIterationCount="20" mass="210"/>
 
-            <joint component1="1" component2="2" node="frontBackJoint" rotLimit="0 0 20" transLimit="0 0 0" rotLimitSpring="0 0 4000" rotLimitDamping="0 0 300"/>
+            <joint component1="1" component2="2" node="frontBackJoint" rotLimit="0 0 8" transLimit="0 0 0" rotLimitSpring="0 0 4000" rotLimitDamping="0 0 300"/>
 
             <joint component1="1" component2="3" node="frontLeftBoggieJoint"  rotLimit="20 0 0" transLimit="0 0 0"/>
             <joint component1="1" component2="4" node="frontRightBoggieJoint" rotLimit="20 0 0" transLimit="0 0 0"/>
@@ -70,28 +70,28 @@
 			<wheelConfiguration name="Forest King F2 710/45" price="0" brand="NOKIAN" saveId="NOKIAN_DEFAULT">
                 <wheels autoRotateBackSpeed="1.6">
 					<wheel filename="$data/shared/wheels/tires/nokian/forestKingF2/710_45__26_5.xml" isLeft="true" rimOffset="0.22">
-                        <physics rotSpeed="1" restLoad="2.3" repr="frontLeftBoggieFrontWheel" forcePointRatio="0.7" showSteeringAngle="false" initialCompression="30" suspTravel="0.15" spring="70" damper="150" transRatio="1.0" frictionScale="2" yOffset="0.03"/>
+                        <physics rotSpeed="1" restLoad="2.3" repr="frontLeftBoggieFrontWheel" forcePointRatio="0.35" showSteeringAngle="false" initialCompression="30" suspTravel="0.15" spring="70" damper="150" transRatio="1.0" frictionScale="2" yOffset="0.03"/>
 					</wheel>
                     <wheel filename="$data/shared/wheels/tires/nokian/forestKingF2/710_45__26_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true" rimOffset="0.22">
-                        <physics rotSpeed="1" restLoad="2.6" repr="frontLeftBoggieBackWheel" forcePointRatio="0.7" showSteeringAngle="false" initialCompression="30" suspTravel="0.15" spring="70" damper="150" transRatio="1.0" frictionScale="2" yOffset="0.03"/>
+                        <physics rotSpeed="1" restLoad="2.6" repr="frontLeftBoggieBackWheel" forcePointRatio="0.35" showSteeringAngle="false" initialCompression="30" suspTravel="0.15" spring="70" damper="150" transRatio="1.0" frictionScale="2" yOffset="0.03"/>
 					</wheel>
                     <wheel filename="$data/shared/wheels/tires/nokian/forestKingF2/710_45__26_5.xml" isLeft="false" rimOffset="0.22">
-                        <physics rotSpeed="1" restLoad="2.3" repr="frontRightBoggieFrontWheel" forcePointRatio="0.7" showSteeringAngle="false" initialCompression="30" suspTravel="0.15" spring="70" damper="150" transRatio="1.0" frictionScale="2" yOffset="0.03"/>
+                        <physics rotSpeed="1" restLoad="2.3" repr="frontRightBoggieFrontWheel" forcePointRatio="0.35" showSteeringAngle="false" initialCompression="30" suspTravel="0.15" spring="70" damper="150" transRatio="1.0" frictionScale="2" yOffset="0.03"/>
 					</wheel>
                     <wheel filename="$data/shared/wheels/tires/nokian/forestKingF2/710_45__26_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true" rimOffset="0.22">
-                        <physics rotSpeed="1" restLoad="2.6" repr="frontRightBoggieBackWheel" forcePointRatio="0.7" showSteeringAngle="false" initialCompression="30" suspTravel="0.15" spring="70" damper="150" transRatio="1.0" frictionScale="2" yOffset="0.03"/>
+                        <physics rotSpeed="1" restLoad="2.6" repr="frontRightBoggieBackWheel" forcePointRatio="0.35" showSteeringAngle="false" initialCompression="30" suspTravel="0.15" spring="70" damper="150" transRatio="1.0" frictionScale="2" yOffset="0.03"/>
 					</wheel>
                     <wheel filename="$data/shared/wheels/tires/nokian/forestKingF2/710_45__26_5.xml" isLeft="true" rimOffset="0.22">
-                        <physics rotSpeed="1" restLoad="2.8" repr="backLeftBoggieFrontWheel" forcePointRatio="0.7" showSteeringAngle="false" initialCompression="30" suspTravel="0.15" spring="70" damper="150" transRatio="1.0" frictionScale="2" yOffset="0.03"/>
+                        <physics rotSpeed="1" restLoad="2.8" repr="backLeftBoggieFrontWheel" forcePointRatio="0.35" showSteeringAngle="false" initialCompression="30" suspTravel="0.15" spring="70" damper="150" transRatio="1.0" frictionScale="2" yOffset="0.03"/>
 					</wheel>
                     <wheel filename="$data/shared/wheels/tires/nokian/forestKingF2/710_45__26_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true" rimOffset="0.22">
-                        <physics rotSpeed="1" restLoad="2.8" repr="backLeftBoggieBackWheel" forcePointRatio="0.7" showSteeringAngle="false" initialCompression="30" suspTravel="0.15" spring="70" damper="150" transRatio="1.0" frictionScale="2" yOffset="0.03"/>
+                        <physics rotSpeed="1" restLoad="2.8" repr="backLeftBoggieBackWheel" forcePointRatio="0.35" showSteeringAngle="false" initialCompression="30" suspTravel="0.15" spring="70" damper="150" transRatio="1.0" frictionScale="2" yOffset="0.03"/>
 					</wheel>
                     <wheel filename="$data/shared/wheels/tires/nokian/forestKingF2/710_45__26_5.xml" isLeft="false" rimOffset="0.22">
-                        <physics rotSpeed="1" restLoad="2.8" repr="backRightBoggieFrontWheel" forcePointRatio="0.7" showSteeringAngle="false" initialCompression="30" suspTravel="0.15" spring="70" damper="150" transRatio="1.0" frictionScale="2" yOffset="0.03"/>
+                        <physics rotSpeed="1" restLoad="2.8" repr="backRightBoggieFrontWheel" forcePointRatio="0.35" showSteeringAngle="false" initialCompression="30" suspTravel="0.15" spring="70" damper="150" transRatio="1.0" frictionScale="2" yOffset="0.03"/>
 					</wheel>
                     <wheel filename="$data/shared/wheels/tires/nokian/forestKingF2/710_45__26_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true" rimOffset="0.22">
-                        <physics rotSpeed="1" restLoad="2.8" repr="backRightBoggieBackWheel" forcePointRatio="0.7" showSteeringAngle="false" initialCompression="30" suspTravel="0.15" spring="70" damper="150" transRatio="1.0" frictionScale="2" yOffset="0.03"/>
+                        <physics rotSpeed="1" restLoad="2.8" repr="backRightBoggieBackWheel" forcePointRatio="0.35" showSteeringAngle="false" initialCompression="30" suspTravel="0.15" spring="70" damper="150" transRatio="1.0" frictionScale="2" yOffset="0.03"/>
 					</wheel>
                 </wheels>
             </wheelConfiguration>		

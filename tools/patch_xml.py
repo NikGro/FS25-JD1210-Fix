@@ -105,6 +105,22 @@ edit(X, [('<articulatedAxis rotNode="frontBackJoint" componentJointIndex="1" anc
           '<articulatedAxis rotNode="frontBackJoint" componentJointIndex="1" anchorActor="0" rotSpeed="-30" ', 1)])
 edit(X, [('    <drivable>\n', '    <drivable>\n        <speedRotScale scale="160" offset="0.7"/>\n', 1)])
 
+# 14. stability like the base game forwarders (Rottne F20D): same total mass (17.9 t), but the weight
+#     sits low and wide in the boggies instead of high in the frames, frame roll joint 8° instead of 20°,
+#     lower wheel force point
+edit(X, [
+    ('<component centerOfMass="0 0.5 3.5"  solverIterationCount="40" mass="4500"/>',
+     '<component centerOfMass="0 0.3 3.5"  solverIterationCount="40" mass="2200"/>', 1),
+    ('<component centerOfMass="0 0.5 -2" solverIterationCount="40" mass="4500"/>',
+     '<component centerOfMass="0 0.3 -2" solverIterationCount="40" mass="2200"/>', 1),
+    ('<component centerOfMass="0.12 0 0"  solverIterationCount="40" mass="2050" inertiaScale="4 1 6"/>',
+     '<component centerOfMass="0.35 0 0"  solverIterationCount="40" mass="3200" inertiaScale="4 1 6"/>', 2),
+    ('<component centerOfMass="-0.12 0 0" solverIterationCount="40" mass="2050" inertiaScale="4 1 6"/>',
+     '<component centerOfMass="-0.35 0 0" solverIterationCount="40" mass="3200" inertiaScale="4 1 6"/>', 2),
+    ('node="frontBackJoint" rotLimit="0 0 20" ', 'node="frontBackJoint" rotLimit="0 0 8" ', 1),
+    ('forcePointRatio="0.7"', 'forcePointRatio="0.35"', 8),
+])
+
 print('1210G.xml patched')
 
 # ---------------------------------------------------------------- modDesc

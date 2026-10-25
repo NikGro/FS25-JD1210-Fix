@@ -100,11 +100,6 @@ regex(X, r'\n[ \t]*<powerConsumer ptoRpm="350"[^\n]*', '', 1)
 edit(X, [('        <enterReferenceNode node="1210G_main_component1" />',
           '        <enterReferenceNode node="1210G_main_component1" />\n        <enterAnimation name="laiptai" />', 1)])
 
-# 13. calmer steering at speed (game default speedRotScale is 80) and slightly slower steering overall
-edit(X, [('<articulatedAxis rotNode="frontBackJoint" componentJointIndex="1" anchorActor="0" rotSpeed="-35" ',
-          '<articulatedAxis rotNode="frontBackJoint" componentJointIndex="1" anchorActor="0" rotSpeed="-30" ', 1)])
-edit(X, [('    <drivable>\n', '    <drivable>\n        <speedRotScale scale="160" offset="0.7"/>\n', 1)])
-
 # 14. stability like the base game forwarders (Rottne F20D): same total mass (17.9 t), but the weight
 #     sits low and wide in the boggies instead of high in the frames, frame roll joint 8° instead of 20°,
 #     lower wheel force point

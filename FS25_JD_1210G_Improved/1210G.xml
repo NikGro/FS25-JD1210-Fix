@@ -369,7 +369,7 @@
 		<hubBoltMaterial useDesignColorIndex="15"/>
     </wheels>
 
-    <articulatedAxis rotNode="frontBackJoint" componentJointIndex="1" anchorActor="0" rotSpeed="-30" rotMax="44" rotMin="-44" customWheelIndices1="1 2 3 4" customWheelIndices2="5 6 7 8">
+    <articulatedAxis rotNode="frontBackJoint" componentJointIndex="1" anchorActor="0" rotSpeed="-35" rotMax="44" rotMin="-44" customWheelIndices1="1 2 3 4" customWheelIndices2="5 6 7 8">
         <sounds>
             <steering template="hydraulicClose01" pitchScale="0.3" linkNodeOffset="0 0.7 1" innerRadius="15" outerRadius="25" fadeIn="0.1" fadeOut="0.1">
                 <volume indoor="0.5" outdoor="2.0"/>
@@ -435,7 +435,6 @@
     </reverseDriving>
 
     <drivable>
-        <speedRotScale scale="160" offset="0.7"/>
         <steeringWheel node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|3|4|0|2|1|0" indoorRotation="-14" outdoorRotation="-14"/>
 
         <dashboards>

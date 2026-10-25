@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <sounds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../shared/xml/schema/vehicle_sounds.xsd">
     <motorized>
         <sounds>
@@ -7,84 +7,8 @@
                 <lowpassCutoffFrequency indoor="250" outdoor="10000" />
                 <lowpassGain indoor="0.1" outdoor="0.2" />
             </motor>
-            <gearbox file="$data/vehicles/johnDeere/harvester1270G/sounds/transmission.gls" linkNode="backLeftBoggieFrontWheel" pitchScale="1.0" volumeScale="3.7" innerRadius="1" outerRadius="40" fadeIn="0.9">
-                <loopSynthesisRpm>
-                    <modifier type="DIFFERENTIAL_SPEED" value="0.0"  modifiedValue="0.0" />
-                    <modifier type="DIFFERENTIAL_SPEED" value="11.0" modifiedValue="0.5" />
-                    <modifier type="DIFFERENTIAL_SPEED" value="23.0" modifiedValue="1.0" />
-                </loopSynthesisRpm>
-                <volume indoor="0.55" outdoor="1" >
-                    <modifier type="DIFFERENTIAL_SPEED" value="0.0"  modifiedValue="0.0" />
-                    <modifier type="DIFFERENTIAL_SPEED" value="1.0"  modifiedValue="0.3" />
-                    <modifier type="DIFFERENTIAL_SPEED" value="5.0"  modifiedValue="0.7" />
-                    <modifier type="DIFFERENTIAL_SPEED" value="10.0" modifiedValue="1.1" />
-                    <modifier type="DIFFERENTIAL_SPEED" value="25.0" modifiedValue="1.0" />
-
-                    <modifier type="MOTOR_LOAD" value="-1.00" modifiedValue="1.0" />
-                    <modifier type="MOTOR_LOAD" value="0.00"  modifiedValue="1.0" />
-                    <modifier type="MOTOR_LOAD" value="0.20"  modifiedValue="1.0" />
-                    <modifier type="MOTOR_LOAD" value="0.30"  modifiedValue="1.0" />
-                    <modifier type="MOTOR_LOAD" value="0.45"  modifiedValue="1.0" />
-                    <modifier type="MOTOR_LOAD" value="0.80"  modifiedValue="0.85" />
-                    <modifier type="MOTOR_LOAD" value="1.00"  modifiedValue="0.65" />
-                </volume>
-                <pitch>
-                    <modifier type="SUSPENSION" value="-0.08" modifiedValue="1.07" />
-                    <modifier type="SUSPENSION" value="-0.02" modifiedValue="1.05" />
-                    <modifier type="SUSPENSION" value="0.0"   modifiedValue="1.0" />
-                    <modifier type="SUSPENSION" value="0.02"  modifiedValue="1.05" />
-                    <modifier type="SUSPENSION" value="0.08"  modifiedValue="1.08" />
-
-                    <modifier type="MOTOR_LOAD" value="-1.00" modifiedValue="1.0" />
-                    <modifier type="MOTOR_LOAD" value="0.00"  modifiedValue="1.0" />
-                    <modifier type="MOTOR_LOAD" value="0.20"  modifiedValue="1.0" />
-                    <modifier type="MOTOR_LOAD" value="0.30"  modifiedValue="1.0" />
-                    <modifier type="MOTOR_LOAD" value="0.45"  modifiedValue="1.0" />
-                    <modifier type="MOTOR_LOAD" value="0.80"  modifiedValue="0.96" />
-                    <modifier type="MOTOR_LOAD" value="1.00"  modifiedValue="0.95" />
-                </pitch>
-                <lowpassCutoffFrequency indoor="250" outdoor="20000" />
-                <lowpassGain indoor="0.3" outdoor="1" />
-            </gearbox>
-            <gearbox file="$data/vehicles/johnDeere/harvester1270G/sounds/transmission.gls" linkNode="backRightBoggieFrontWheel" pitchScale="0.9" volumeScale="3.7" innerRadius="1" outerRadius="40" fadeIn="0.9" isLocalSound="true">
-                <loopSynthesisRpm>
-                    <modifier type="DIFFERENTIAL_SPEED" value="0.0"  modifiedValue="0.0" />
-                    <modifier type="DIFFERENTIAL_SPEED" value="11.0" modifiedValue="0.5" />
-                    <modifier type="DIFFERENTIAL_SPEED" value="23.0" modifiedValue="1.0" />
-                </loopSynthesisRpm>
-                <volume indoor="0.55" outdoor="1" >
-                    <modifier type="DIFFERENTIAL_SPEED" value="0.0"  modifiedValue="0.0" />
-                    <modifier type="DIFFERENTIAL_SPEED" value="1.0"  modifiedValue="0.3" />
-                    <modifier type="DIFFERENTIAL_SPEED" value="5.0"  modifiedValue="0.7" />
-                    <modifier type="DIFFERENTIAL_SPEED" value="10.0" modifiedValue="1.1" />
-                    <modifier type="DIFFERENTIAL_SPEED" value="25.0" modifiedValue="1.0" />
-
-                    <modifier type="MOTOR_LOAD" value="-1.00" modifiedValue="1.0" />
-                    <modifier type="MOTOR_LOAD" value="0.00"  modifiedValue="1.0" />
-                    <modifier type="MOTOR_LOAD" value="0.20"  modifiedValue="1.0" />
-                    <modifier type="MOTOR_LOAD" value="0.30"  modifiedValue="1.0" />
-                    <modifier type="MOTOR_LOAD" value="0.45"  modifiedValue="1.0" />
-                    <modifier type="MOTOR_LOAD" value="0.80"  modifiedValue="0.85" />
-                    <modifier type="MOTOR_LOAD" value="1.00"  modifiedValue="0.65" />
-                </volume>
-                <pitch>
-                    <modifier type="SUSPENSION" value="-0.08" modifiedValue="1.07" />
-                    <modifier type="SUSPENSION" value="-0.02" modifiedValue="1.05" />
-                    <modifier type="SUSPENSION" value="0.0"   modifiedValue="1.0" />
-                    <modifier type="SUSPENSION" value="0.02"  modifiedValue="1.05" />
-                    <modifier type="SUSPENSION" value="0.08"  modifiedValue="1.08" />
-
-                    <modifier type="MOTOR_LOAD" value="-1.00" modifiedValue="1.0" />
-                    <modifier type="MOTOR_LOAD" value="0.00"  modifiedValue="1.0" />
-                    <modifier type="MOTOR_LOAD" value="0.20"  modifiedValue="1.0" />
-                    <modifier type="MOTOR_LOAD" value="0.30"  modifiedValue="1.0" />
-                    <modifier type="MOTOR_LOAD" value="0.45"  modifiedValue="1.0" />
-                    <modifier type="MOTOR_LOAD" value="0.80"  modifiedValue="0.96" />
-                    <modifier type="MOTOR_LOAD" value="1.00"  modifiedValue="0.95" />
-                </pitch>
-                <lowpassCutoffFrequency indoor="250" outdoor="20000" />
-                <lowpassGain indoor="0.3" outdoor="1" />
-            </gearbox>
+            <motor template="transmissionForestry_01" volumeScale="2.5" pitchScale="0.5" linkNode="backLeftBoggieFrontWheel" isLocalSound="true"/>
+            <motor template="transmissionForestry_01" volumeScale="2.5" pitchScale="0.3" linkNode="backRightBoggieFrontWheel"/>
 
             <motor file="$data/vehicles/komatsu/harvester951/sounds/Cabin_loop.gls" linkNodeOffset="0 3.3 0.3" volumeScale="1.2" pitchScale="1.2" innerRadius="0.8" supportsReverb="false" fadeIn="0.8" fadeOut="3" isLocalSound="true">
                 <volume indoor="1" outdoor="0" >

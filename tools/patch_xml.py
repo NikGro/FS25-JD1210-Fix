@@ -50,7 +50,7 @@ edit(X, [(
 
 # 4. interactive control removed completely (+ the animations only it used)
 regex(X, r'\n\t<interactiveControl>.*?\n\t</interactiveControl>[ \t]*\n', '\n', 1)
-for anim in ('laiptai', 'Durys', 'stoike1', 'stoike2', 'stoike3', 'Beacon', 'atramaside', 'atramaup', 'stoikesA'):
+for anim in ('Durys','stoike1', 'stoike2', 'stoike3', 'Beacon', 'atramaside', 'atramaup', 'stoikesA'):
     regex(X, r'\n[ \t]*<animation name="%s"[^>]*>.*?</animation>[ \t]*' % anim, '', 1)
 # beacon stays on the roof; the second copy in the door pocket goes
 regex(X, r'\n[ \t]*<beaconLight node="0>0\|4\|0\|0\|0\|0\|0\|0\|0\|0\|0\|0\|1\|0\|0\|9\|0\|16"[^\n]*', '', 1)
@@ -95,6 +95,15 @@ regex(X, r'\n[ \t]*<movingPart node="0>0\|4\|0\|0\|0\|0\|0\|0\|0\|0\|0\|0\|1\|0\
 
 # 11. no permanent hydraulic base load (the base game Rottne F20D has none either)
 regex(X, r'\n[ \t]*<powerConsumer ptoRpm="350"[^\n]*', '', 1)
+
+# 12. front stairs: folded while someone drives, unfolded when the machine is left (enter animation)
+edit(X, [('        <enterReferenceNode node="1210G_main_component1" />',
+          '        <enterReferenceNode node="1210G_main_component1" />\n        <enterAnimation name="laiptai" />', 1)])
+
+# 13. calmer steering at speed (game default speedRotScale is 80) and slightly slower steering overall
+edit(X, [('<articulatedAxis rotNode="frontBackJoint" componentJointIndex="1" anchorActor="0" rotSpeed="-35" ',
+          '<articulatedAxis rotNode="frontBackJoint" componentJointIndex="1" anchorActor="0" rotSpeed="-30" ', 1)])
+edit(X, [('    <drivable>\n', '    <drivable>\n        <speedRotScale scale="160" offset="0.7"/>\n', 1)])
 
 print('1210G.xml patched')
 
@@ -143,3 +152,17 @@ s = s.replace('<de>\n<![CDATA[Dies ist', '<de>\n<![CDATA[' + note.replace('NG ed
 assert 'NG edit' in s and 'NG-Bearbeitung' in s
 open(f'{MOD}/{M}', 'w', encoding='utf-8').write(s)
 print('modDesc.xml patched')
+
+# ---------------------------------------------------------------- sounds
+# the harvester 1270G gearbox whine (copied by the original) sounds like an electric car at 23 km/h;
+# use the base game forwarder transmission sound like the Rottne F20D
+S = 'sound1210G.xml'
+s = open(f'{MOD}/{S}', encoding='utf-8-sig').read()
+blocks = list(re.finditer(r'[ \t]*<gearbox file="\$data/vehicles/johnDeere/harvester1270G/sounds/transmission.gls".*?</gearbox>', s, flags=re.S))
+assert len(blocks) == 2, len(blocks)
+new = ['            <motor template="transmissionForestry_01" volumeScale="2.5" pitchScale="0.5" linkNode="backLeftBoggieFrontWheel" isLocalSound="true"/>',
+       '            <motor template="transmissionForestry_01" volumeScale="2.5" pitchScale="0.3" linkNode="backRightBoggieFrontWheel"/>']
+for b, n in reversed(list(zip(blocks, new))):
+    s = s[:b.start()] + n + s[b.end():]
+open(f'{MOD}/{S}', 'w', encoding='utf-8').write(s)
+print('sound1210G.xml patched')

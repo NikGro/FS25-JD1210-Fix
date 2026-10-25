@@ -1,13 +1,14 @@
-﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="113">
-    <author>Rimvis</author>
+    <author>Rimvis (NG edit: NikGro)</author>
 	
-    <version>1.0.0.1</version>
+    <version>1.0.1.0</version>
 	
     <iconFilename>icon_1210G.dds</iconFilename>
 	
 	<title>
-        <en>John Deere 1210G</en>
+        <en>John Deere 1210G (NG)</en>
+        <de>John Deere 1210G (NG)</de>
     </title>
 	
     <storeItems>
@@ -16,7 +17,13 @@
 	
     <description>
 <en>
-<![CDATA[ This is the top-of-the-line John Deere 1210G log loader, designed for the most demanding forestry challenges. This model is equipped with IBC (Intelligent Boom Control) and a CF7 boom. Together with the professional Hultdins SuperGrip II 360S grapple, this combination ensures maximum loading speed and allows you to load logs with perfect precision.
+<![CDATA[NG edit (private, not for redistribution):
+- Real CVT transmission instead of two gears the automatic never changed.
+- Easy crane control now works (own script, the crane model does not fit the base game system).
+- Interactive control removed, beacon fixed on the roof, crane light fixed.
+- Control group 2 is called "Load space". Small XML fixes (wheel loads, duplicate hose, tyre names, duplicate store item).
+
+This is the top-of-the-line John Deere 1210G log loader, designed for the most demanding forestry challenges. This model is equipped with IBC (Intelligent Boom Control) and a CF7 boom. Together with the professional Hultdins SuperGrip II 360S grapple, this combination ensures maximum loading speed and allows you to load logs with perfect precision.
 
 Shop Category: Forwarders
 Price: 350.000 $
@@ -69,7 +76,13 @@ Added: front window grill
 ]]>
 </en>
 <de>
-<![CDATA[Dies ist der John Deere 1210G Holzverlader der Spitzenklasse, entwickelt für härteste forstwirtschaftliche Herausforderungen. Dieses Modell ist mit IBC (Intelligent Boom Control) und einem CF7-Ausleger ausgestattet. Zusammen mit dem professionellen Hultdins SuperGrip II 360S Greifer gewährleistet diese Kombination maximale Ladegeschwindigkeit und ermöglicht präzises Verladen von Stämmen.
+<![CDATA[NG-Bearbeitung (privat, nicht zur Weitergabe):
+- Echtes stufenloses Getriebe statt zwei Gängen, die die Automatik nie wechselte.
+- Einfache Kransteuerung funktioniert jetzt (eigenes Script, das Kranmodell passt nicht zum Basisspiel-System).
+- Interactive Control entfernt, Rundumleuchte fest auf dem Dach, Kranlicht fest.
+- Steuergruppe 2 heißt „Laderaum“. Kleine XML-Fixes (Radlasten, doppelter Schlauch, Reifennamen, doppelter Shop-Eintrag).
+
+Dies ist der John Deere 1210G Holzverlader der Spitzenklasse, entwickelt für härteste forstwirtschaftliche Herausforderungen. Dieses Modell ist mit IBC (Intelligent Boom Control) und einem CF7-Ausleger ausgestattet. Zusammen mit dem professionellen Hultdins SuperGrip II 360S Greifer gewährleistet diese Kombination maximale Ladegeschwindigkeit und ermöglicht präzises Verladen von Stämmen.
 
 Shop-Kategorie: Holztransport
 Preis: 350.000€
@@ -122,19 +135,20 @@ Hinzugefügt: Frontscheibengitter
 </de>
     </description>	
 	
-	<multiplayer supported="true"/>	
+	<multiplayer supported="true"/>
 
-    <l10n>		
-		<!-- Interactive Control -->
-        <text name="actionIC_Animation">        
-		    <en>Animation</en>
-		</text>
-        <text name="actionIC_IC">        
-		    <en>Interactive control</en>
-		</text>
-        <text name="actionIC_MC">        
-		    <en>Mouse control</en>
-		</text>
+    <specializations>
+        <specialization name="jdEasyArmControl" className="JDEasyArmControl" filename="scripts/JDEasyArmControl.lua"/>
+    </specializations>
+
+    <vehicleTypes>
+        <type name="jd1210gForwarder" parent="forwarder" filename="$dataS/scripts/vehicles/Vehicle.lua">
+            <specialization name="jdEasyArmControl"/>
+        </type>
+    </vehicleTypes>	
+
+    <l10n>
+		<text name="controlGroup_jdLoadSpace">	<en>Load space</en>	<de>Laderaum</de>	</text>		
 
 		<text name="InteriorDeco">			<en>Interior Deco</en>				<de>Interieur Deko</de>				</text>	
 
@@ -144,16 +158,7 @@ Hinzugefügt: Frontscheibengitter
 		<text name="configuration_front_guard">		<en>front guard</en>			<de>Frontschutz</de>			</text>
 		<text name="configuration_window_guard">		<en>front window guard</en>			<de>Frontscheibenschutz</de>			</text>		
 		
-		<text name="actionIC_Gate">		<en>Gate Slide</en>			<de>Schiebetor</de>			</text>	
-		<text name="actionIC_extension">		<en>Gate extension</en>			<de>Torverlängerung</de>			</text>
-		<text name="actionIC_Armrest">		<en>Armrest up/down</en>			<de>Armlehne hoch/runter</de>			</text>
-		<text name="actionIC_ArmrestS">		<en>Armrest Side</en>			<de>Armlehnenseite</de>			</text>		
-		<text name="actionIC_Beacon">		<en>Beacon Location</en>			<de>Beacon Location</de>			</text>
-		<text name="actionIC_Stairs">		<en>Stairs up/down</en>			<de>Treppe hinauf/hinunter</de>			</text>	
 	</l10n>
 
-	<storeItems>
-		<storeItem xmlFilename="1210G.xml"/>
-    </storeItems>	
 
 </modDesc>

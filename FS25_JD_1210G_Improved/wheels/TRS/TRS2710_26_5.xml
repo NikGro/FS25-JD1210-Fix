@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<wheel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../shared/xml/schema/wheel.xsd">
+    <brand>NOKIAN</brand>
+    <name>TRS 2</name>
+    <default>
+        <physics radius="0.67" width="0.71" mass="0.45" tireType="mud" frictionScale="1.60" maxLongStiffness="11" maxLatStiffness="130" maxLatStiffnessLoad="2" />
+        <tire filename="wheels/TRS/TRS2.i3d" nodeLeft="0|0" nodeRight="0|0" maxDeformation="0.067" sideDeformOffset="0.948" isCareWheel="false" tireTrackAtlasIndex="9" />
+        <outerRim filename="$data/shared/wheels/rims/rim001.i3d" node="0|0" widthAndDiam="25 25.9" />
+        <innerRim filename="$data/shared/wheels/rims/rim001.i3d" nodeLeft="2|0" nodeRight="2|1" widthAndDiam="25 25.9" />
+    </default>
+</wheel>

@@ -1,0 +1,1443 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="forwarder" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../shared/xml/schema/vehicle.xsd">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>JOHNDEERE 1210G</name>
+        <specs>
+            <power>209</power>
+            <maxSpeed>23</maxSpeed>
+        </specs>
+        <functions>
+            <function>$l10n_function_forestryTransport</function>
+        </functions>
+        <image>store_JD1210G.png</image>
+        <price>350000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>JOHNDEERE</brand>
+        <category>forestryForwarders</category>
+        <shopLoadingDelay initial="0.3"/>
+        <vertexBufferMemoryUsage>5557760</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>1126400</indexBufferMemoryUsage>
+        <textureMemoryUsage>11141120</textureMemoryUsage>
+        <audioMemoryUsage>640852</audioMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_forwarder</typeDesc>
+        <filename>1210G.i3d</filename>
+        <sounds filename="sound1210G.xml" volumeFactor="0.8"/>
+        <size width="3" length="12.6" height="3.85" lengthOffset="2.13"/>
+        <components>
+            <component centerOfMass="0 0.5 3.5"  solverIterationCount="40" mass="4500"/>
+            <component centerOfMass="0 0.5 -2" solverIterationCount="40" mass="4500"/>
+
+            <component centerOfMass="0.12 0 0"  solverIterationCount="40" mass="2050" inertiaScale="4 1 6"/>
+            <component centerOfMass="-0.12 0 0" solverIterationCount="40" mass="2050" inertiaScale="4 1 6"/>
+            <component centerOfMass="0.12 0 0"  solverIterationCount="40" mass="2050" inertiaScale="4 1 6"/>
+            <component centerOfMass="-0.12 0 0" solverIterationCount="40" mass="2050" inertiaScale="4 1 6"/>
+
+            <component centerOfMass="0 -0.4 0"     solverIterationCount="20" mass="260"/>
+            <component                            solverIterationCount="20" mass="210"/>
+            <component                            solverIterationCount="20" mass="210"/>
+
+            <joint component1="1" component2="2" node="frontBackJoint" rotLimit="0 0 20" transLimit="0 0 0" rotLimitSpring="0 0 4000" rotLimitDamping="0 0 300"/>
+
+            <joint component1="1" component2="3" node="frontLeftBoggieJoint"  rotLimit="20 0 0" transLimit="0 0 0"/>
+            <joint component1="1" component2="4" node="frontRightBoggieJoint" rotLimit="20 0 0" transLimit="0 0 0"/>
+
+            <joint component1="2" component2="5" node="backLeftBoggieJoint"  rotLimit="20 0 0" transLimit="0 0 0"/>
+            <joint component1="2" component2="6" node="backRightBoggieJoint" rotLimit="20 0 0" transLimit="0 0 0"/>
+
+            <joint component1="2" component2="7" node="componentJointGrapple" rotLimit="0 50 120" rotMinLimit="0 -50 -280" transLimit="0 0 0" rotLimitSpring="0 15 15" rotLimitDamping="0 20 20" maxRotDriveForce="0.5 2 2" nodeActor1="componentJointGrappleActor1" zRotationNode="componentJointGrappleZRot" enableCollision="true" rotDriveVelocity="0 0 0" transLimitSpring="6000 6000 6000" transLimitDamping="100 100 100"/>
+            <joint component1="7" component2="8" node="componentJointGrabLeft" rotLimit="0 0 0" transLimit="0 0 0" rotLimitSpring="0 0 200" rotLimitDamping="0 0 30" rotLimitForceLimit="-1 -1 20"/>
+            <joint component1="7" component2="9" node="componentJointGrabRight" rotLimit="0 0 0" transLimit="0 0 0" rotLimitSpring="0 0 200" rotLimitDamping="0 0 30" rotLimitForceLimit="-1 -1 20"/>
+			
+			<collisionPair component1="8" component2="9" enabled="false"/>
+			<collisionPair component1="2" component2="3" enabled="false"/>
+			<collisionPair component1="2" component2="4" enabled="false"/>	
+        </components>
+        <schemaOverlay attacherJointPosition="0 0" name="VEHICLE"/>
+        <mapHotspot type="TRACTOR"/>
+
+    </base>
+
+    <wheels>
+        <wheelConfigurations>
+			<wheelConfiguration name="forestKingF2" price="0" brand="NOKIAN" saveId="NOKIAN_DEFAULT">
+                <wheels autoRotateBackSpeed="1.6">
+					<wheel filename="$data/shared/wheels/tires/nokian/forestKingF2/710_45__26_5.xml" isLeft="true" rimOffset="0.22">
+                        <physics rotSpeed="1" restLoad="2.3" repr="frontLeftBoggieFrontWheel" forcePointRatio="0.7" showSteeringAngle="false" initialCompression="30" suspTravel="0.15" spring="70" damper="150" transRatio="1.0" frictionScale="2" yOffset="0.03"/>
+					</wheel>
+                    <wheel filename="$data/shared/wheels/tires/nokian/forestKingF2/710_45__26_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true" rimOffset="0.22">
+                        <physics rotSpeed="1" restLoad="2.6" repr="frontLeftBoggieBackWheel" forcePointRatio="0.7" showSteeringAngle="false" initialCompression="30" suspTravel="0.15" spring="70" damper="150" transRatio="1.0" frictionScale="2" yOffset="0.03"/>
+					</wheel>
+                    <wheel filename="$data/shared/wheels/tires/nokian/forestKingF2/710_45__26_5.xml" isLeft="false" rimOffset="0.22">
+                        <physics rotSpeed="1" restLoad="2.6" repr="frontRightBoggieFrontWheel" forcePointRatio="0.7" showSteeringAngle="false" initialCompression="30" suspTravel="0.15" spring="70" damper="150" transRatio="1.0" frictionScale="2" yOffset="0.03"/>
+					</wheel>
+                    <wheel filename="$data/shared/wheels/tires/nokian/forestKingF2/710_45__26_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true" rimOffset="0.22">
+                        <physics rotSpeed="1" restLoad="2.3" repr="frontRightBoggieBackWheel" forcePointRatio="0.7" showSteeringAngle="false" initialCompression="30" suspTravel="0.15" spring="70" damper="150" transRatio="1.0" frictionScale="2" yOffset="0.03"/>
+					</wheel>
+                    <wheel filename="$data/shared/wheels/tires/nokian/forestKingF2/710_45__26_5.xml" isLeft="true" rimOffset="0.22">
+                        <physics rotSpeed="1" restLoad="2.8" repr="backLeftBoggieFrontWheel" forcePointRatio="0.7" showSteeringAngle="false" initialCompression="30" suspTravel="0.15" spring="70" damper="150" transRatio="1.0" frictionScale="2" yOffset="0.03"/>
+					</wheel>
+                    <wheel filename="$data/shared/wheels/tires/nokian/forestKingF2/710_45__26_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true" rimOffset="0.22">
+                        <physics rotSpeed="1" restLoad="2.8" repr="backLeftBoggieBackWheel" forcePointRatio="0.7" showSteeringAngle="false" initialCompression="30" suspTravel="0.15" spring="70" damper="150" transRatio="1.0" frictionScale="2" yOffset="0.03"/>
+					</wheel>
+                    <wheel filename="$data/shared/wheels/tires/nokian/forestKingF2/710_45__26_5.xml" isLeft="false" rimOffset="0.22">
+                        <physics rotSpeed="1" restLoad="2.8" repr="backRightBoggieFrontWheel" forcePointRatio="0.7" showSteeringAngle="false" initialCompression="30" suspTravel="0.15" spring="70" damper="150" transRatio="1.0" frictionScale="2" yOffset="0.03"/>
+					</wheel>
+                    <wheel filename="$data/shared/wheels/tires/nokian/forestKingF2/710_45__26_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true" rimOffset="0.22">
+                        <physics rotSpeed="1" restLoad="2.8" repr="backRightBoggieBackWheel" forcePointRatio="0.7" showSteeringAngle="false" initialCompression="30" suspTravel="0.15" spring="70" damper="150" transRatio="1.0" frictionScale="2" yOffset="0.03"/>
+					</wheel>
+                </wheels>
+            </wheelConfiguration>		
+			<wheelConfiguration name="forestKingF2" price="20000" brand="NOKIAN">
+                <wheels baseConfig="NOKIAN_DEFAULT" >
+                    <wheel filename="$data/shared/wheels/tires/nokian/forestKingF2/800_40__26_5.xml" isLeft="true">
+                    </wheel>					
+					<wheel filename="$data/shared/wheels/tires/nokian/forestKingF2/800_40__26_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true">
+                    </wheel>
+ 					<wheel filename="$data/shared/wheels/tires/nokian/forestKingF2/800_40__26_5.xml" isLeft="false">
+                    </wheel>
+					<wheel filename="$data/shared/wheels/tires/nokian/forestKingF2/800_40__26_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true">
+                    </wheel>
+					<wheel filename="$data/shared/wheels/tires/nokian/forestKingF2/800_40__26_5.xml" isLeft="true">
+                    </wheel>
+					<wheel filename="$data/shared/wheels/tires/nokian/forestKingF2/800_40__26_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true">
+                    </wheel>
+					<wheel filename="$data/shared/wheels/tires/nokian/forestKingF2/800_40__26_5.xml" isLeft="false">
+                    </wheel>
+					<wheel filename="$data/shared/wheels/tires/nokian/forestKingF2/800_40__26_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true">
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+			<wheelConfiguration name="%s %s" params="Forest King TRS 2|$l10n_configuration_valueDefault" price="4000" brand="NOKIAN" saveId="NOKIAN_TRS">
+                <wheels baseConfig="NOKIAN_DEFAULT" autoRotateBackSpeed="1.6">
+                    <wheel filename="wheels/TRS/TRS2710_26_5.xml" isLeft="true">
+                    </wheel>					
+					<wheel filename="wheels/TRS/TRS2710_26_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true">
+                    </wheel>
+ 					<wheel filename="wheels/TRS/TRS2710_26_5.xml" isLeft="false">
+                    </wheel>
+					<wheel filename="wheels/TRS/TRS2710_26_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true">
+                    </wheel>
+					<wheel filename="wheels/TRS/TRS2710_26_5.xml" isLeft="true">
+                    </wheel>
+					<wheel filename="wheels/TRS/TRS2710_26_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true">
+                    </wheel>
+					<wheel filename="wheels/TRS/TRS2710_26_5.xml" isLeft="false">
+                    </wheel>
+					<wheel filename="wheels/TRS/TRS2710_26_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true">
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>				
+			<wheelConfiguration name="Forestech" price="12000" brand="BKT">
+                <wheels baseConfig="NOKIAN_DEFAULT" >
+                    <wheel filename="$data/shared/wheels/tires/bkt/forestech/710_45__26_5.xml" isLeft="true">
+                    </wheel>					
+					<wheel filename="$data/shared/wheels/tires/bkt/forestech/710_45__26_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true">
+                    </wheel>
+ 					<wheel filename="$data/shared/wheels/tires/bkt/forestech/710_45__26_5.xml" isLeft="false">
+                    </wheel>
+					<wheel filename="$data/shared/wheels/tires/bkt/forestech/710_45__26_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true">
+                    </wheel>
+					<wheel filename="$data/shared/wheels/tires/bkt/forestech/710_45__26_5.xml" isLeft="true">
+                    </wheel>
+					<wheel filename="$data/shared/wheels/tires/bkt/forestech/710_45__26_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true">
+                    </wheel>
+					<wheel filename="$data/shared/wheels/tires/bkt/forestech/710_45__26_5.xml" isLeft="false">
+                    </wheel>
+					<wheel filename="$data/shared/wheels/tires/bkt/forestech/710_45__26_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true">
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+			<wheelConfiguration name="TR678" price="4000" brand="BKT" saveId="BKT_T678">
+                <wheels baseConfig="NOKIAN_DEFAULT" >
+                    <wheel filename="wheels/BKT/TR678.xml" isLeft="true">
+                    </wheel>					
+					<wheel filename="wheels/BKT/TR678.xml" isLeft="true" hasTireTracks="true" hasParticles="true">
+                    </wheel>
+ 					<wheel filename="wheels/BKT/TR678.xml" isLeft="false">
+                    </wheel>
+					<wheel filename="wheels/BKT/TR678.xml" isLeft="false" hasTireTracks="true" hasParticles="true">
+                    </wheel>
+					<wheel filename="wheels/BKT/TR678.xml" isLeft="true">
+                    </wheel>
+					<wheel filename="wheels/BKT/TR678.xml" isLeft="true" hasTireTracks="true" hasParticles="true">
+                    </wheel>
+					<wheel filename="wheels/BKT/TR678.xml" isLeft="false">
+                    </wheel>
+					<wheel filename="wheels/BKT/TR678.xml" isLeft="false" hasTireTracks="true" hasParticles="true">
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>			
+			<wheelConfiguration name="428SB" price="12000" brand="TRELLEBORG">
+                <wheels baseConfig="NOKIAN_DEFAULT" >
+                    <wheel filename="$data/shared/wheels/tires/trelleborg/TwinForestry428SB/710_45R26_5.xml" isLeft="true">
+                    </wheel>					
+					<wheel filename="$data/shared/wheels/tires/trelleborg/TwinForestry428SB/710_45R26_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true">
+                    </wheel>
+ 					<wheel filename="$data/shared/wheels/tires/trelleborg/TwinForestry428SB/710_45R26_5.xml" isLeft="false">
+                    </wheel>
+					<wheel filename="$data/shared/wheels/tires/trelleborg/TwinForestry428SB/710_45R26_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true">
+                    </wheel>
+					<wheel filename="$data/shared/wheels/tires/trelleborg/TwinForestry428SB/710_45R26_5.xml" isLeft="true">
+                    </wheel>
+					<wheel filename="$data/shared/wheels/tires/trelleborg/TwinForestry428SB/710_45R26_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true">
+                    </wheel>
+					<wheel filename="$data/shared/wheels/tires/trelleborg/TwinForestry428SB/710_45R26_5.xml" isLeft="false">
+                    </wheel>
+					<wheel filename="$data/shared/wheels/tires/trelleborg/TwinForestry428SB/710_45R26_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true">
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>			
+			<wheelConfiguration name="422SB" price="12000" brand="TRELLEBORG">
+                <wheels baseConfig="NOKIAN_DEFAULT" >
+                    <wheel filename="$data/shared/wheels/tires/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="true">
+                    </wheel>					
+					<wheel filename="$data/shared/wheels/tires/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true">
+                    </wheel>
+ 					<wheel filename="$data/shared/wheels/tires/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="false">
+                    </wheel>
+					<wheel filename="$data/shared/wheels/tires/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true">
+                    </wheel>
+					<wheel filename="$data/shared/wheels/tires/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="true">
+                    </wheel>
+					<wheel filename="$data/shared/wheels/tires/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true">
+                    </wheel>
+					<wheel filename="$data/shared/wheels/tires/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="false">
+                    </wheel>
+					<wheel filename="$data/shared/wheels/tires/trelleborg/TwinForestry422SB/710_45R26_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true">
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>	
+
+                                  <!-- Viksrai -->
+            <wheelConfiguration name="ECO-TRACK" price="8000" brand="OLOFSFORS" saveId="OLOFSFORS_ECO-TRACK">
+                <wheels baseConfig="NOKIAN_DEFAULT">
+                    <wheel>
+                        <physics radius="0.73"/>
+                        <tire tireTrackAtlasIndex="5" maxDeformation="0" sideDeformOffset="1"/>
+                    </wheel>
+                    <wheel>
+                        <physics radius="0.73"/>
+                        <tire tireTrackAtlasIndex="5" maxDeformation="0" sideDeformOffset="1"/>
+                    </wheel>
+                    <wheel>
+                        <physics radius="0.73"/>
+                        <tire tireTrackAtlasIndex="5" maxDeformation="0" sideDeformOffset="1"/>
+                    </wheel>
+                    <wheel>
+                        <physics radius="0.73"/>
+                        <tire tireTrackAtlasIndex="5" maxDeformation="0" sideDeformOffset="1"/>
+                    </wheel>
+                    <wheel>
+                        <physics radius="0.73"/>
+                        <tire tireTrackAtlasIndex="5" maxDeformation="0" sideDeformOffset="1"/>
+                    </wheel>
+                    <wheel>
+                        <physics radius="0.73"/>
+                        <tire tireTrackAtlasIndex="5" maxDeformation="0" sideDeformOffset="1"/>
+                    </wheel>
+                    <wheel>
+                        <physics radius="0.73"/>
+                        <tire tireTrackAtlasIndex="5" maxDeformation="0" sideDeformOffset="1"/>
+                    </wheel>
+                    <wheel>
+                        <physics radius="0.73"/>
+                        <tire tireTrackAtlasIndex="5" maxDeformation="0" sideDeformOffset="1"/>
+                    </wheel>
+                </wheels>
+                <crawlers>
+                     <crawler filename="$data/shared/crawlers/olofsfors/track710_45R26_5/track710_45R26_5_ecoTrack.xml" linkWheelNodes="frontLeftBoggieBackWheel frontLeftBoggieFrontWheel" isLeft="true" offset="0 0 0.75"/>
+                     <crawler filename="$data/shared/crawlers/olofsfors/track710_45R26_5/track710_45R26_5_ecoTrack.xml" linkWheelNodes="frontRightBoggieBackWheel frontRightBoggieFrontWheel" isLeft="false" offset="0 0 0.75"/>
+                     <crawler filename="$data/shared/crawlers/olofsfors/track710_45R26_5/track710_45R26_5_ecoTrack.xml" linkWheelNodes="backLeftBoggieBackWheel backLeftBoggieFrontWheel" isLeft="true" offset="0 0 0.75"/>
+                     <crawler filename="$data/shared/crawlers/olofsfors/track710_45R26_5/track710_45R26_5_ecoTrack.xml" linkWheelNodes="backRightBoggieBackWheel backRightBoggieFrontWheel" isLeft="false" offset="0 0 0.75"/>
+                </crawlers>
+            </wheelConfiguration>
+            <wheelConfiguration name="EVO-BALTIC" price="8000" brand="OLOFSFORS" saveId="OLOFSFORS_EVO-BALTIC">
+                <wheels baseConfig="OLOFSFORS_ECO-TRACK">
+                    <wheel/>
+                    <wheel/>
+                    <wheel/>
+                    <wheel/>
+                    <wheel/>
+                    <wheel/>
+                    <wheel/>
+                    <wheel/>
+                </wheels>
+                <crawlers>
+                     <crawler filename="$data/shared/crawlers/olofsfors/track710_45R26_5/track710_45R26_5_evoBaltic.xml" linkWheelNodes="frontLeftBoggieBackWheel frontLeftBoggieFrontWheel" isLeft="true" offset="0 0 0.75"/>
+                     <crawler filename="$data/shared/crawlers/olofsfors/track710_45R26_5/track710_45R26_5_evoBaltic.xml" linkWheelNodes="frontRightBoggieBackWheel frontRightBoggieFrontWheel" isLeft="false" offset="0 0 0.75"/>
+                     <crawler filename="$data/shared/crawlers/olofsfors/track710_45R26_5/track710_45R26_5_evoBaltic.xml" linkWheelNodes="backLeftBoggieBackWheel backLeftBoggieFrontWheel" isLeft="true" offset="0 0 0.75"/>
+                     <crawler filename="$data/shared/crawlers/olofsfors/track710_45R26_5/track710_45R26_5_evoBaltic.xml" linkWheelNodes="backRightBoggieBackWheel backRightBoggieFrontWheel" isLeft="false" offset="0 0 0.75"/>
+                </crawlers>
+            </wheelConfiguration>
+            <wheelConfiguration name="EX" price="8000" brand="OLOFSFORS" saveId="OLOFSFORS_EX">
+                <wheels baseConfig="OLOFSFORS_ECO-TRACK">
+                    <wheel/>
+                    <wheel/>
+                    <wheel/>
+                    <wheel/>
+                    <wheel/>
+                    <wheel/>
+                    <wheel/>
+                    <wheel/>
+                </wheels>
+                <crawlers>
+                     <crawler filename="$data/shared/crawlers/olofsfors/track710_45R26_5/track710_45R26_5_ex.xml" linkWheelNodes="frontLeftBoggieBackWheel frontLeftBoggieFrontWheel" isLeft="true" offset="0 0 0.75"/>
+                     <crawler filename="$data/shared/crawlers/olofsfors/track710_45R26_5/track710_45R26_5_ex.xml" linkWheelNodes="frontRightBoggieBackWheel frontRightBoggieFrontWheel" isLeft="false" offset="0 0 0.75"/>
+                     <crawler filename="$data/shared/crawlers/olofsfors/track710_45R26_5/track710_45R26_5_ex.xml" linkWheelNodes="backLeftBoggieBackWheel backLeftBoggieFrontWheel" isLeft="true" offset="0 0 0.75"/>
+                     <crawler filename="$data/shared/crawlers/olofsfors/track710_45R26_5/track710_45R26_5_ex.xml" linkWheelNodes="backRightBoggieBackWheel backRightBoggieFrontWheel" isLeft="false" offset="0 0 0.75"/>
+                </crawlers>
+            </wheelConfiguration>
+            <wheelConfiguration name="KOVAX" price="8000" brand="OLOFSFORS" saveId="OLOFSFORS_KOVAX">
+                <wheels baseConfig="OLOFSFORS_ECO-TRACK">
+                    <wheel/>
+                    <wheel/>
+                    <wheel/>
+                    <wheel/>
+                    <wheel/>
+                    <wheel/>
+                    <wheel/>
+                    <wheel/>
+                </wheels>
+                <crawlers>
+                     <crawler filename="$data/shared/crawlers/olofsfors/track710_45R26_5/track710_45R26_5_kovaX.xml" linkWheelNodes="frontLeftBoggieBackWheel frontLeftBoggieFrontWheel" isLeft="true" offset="0 0 0.75"/>
+                     <crawler filename="$data/shared/crawlers/olofsfors/track710_45R26_5/track710_45R26_5_kovaX.xml" linkWheelNodes="frontRightBoggieBackWheel frontRightBoggieFrontWheel" isLeft="false" offset="0 0 0.75"/>
+                     <crawler filename="$data/shared/crawlers/olofsfors/track710_45R26_5/track710_45R26_5_kovaX.xml" linkWheelNodes="backLeftBoggieBackWheel backLeftBoggieFrontWheel" isLeft="true" offset="0 0 0.75"/>
+                     <crawler filename="$data/shared/crawlers/olofsfors/track710_45R26_5/track710_45R26_5_kovaX.xml" linkWheelNodes="backRightBoggieBackWheel backRightBoggieFrontWheel" isLeft="false" offset="0 0 0.75"/>
+                </crawlers>
+            </wheelConfiguration>
+            <wheelConfiguration name="MAGNUM" price="8000" brand="OLOFSFORS" saveId="OLOFSFORS_MAGNUM">
+                <wheels baseConfig="OLOFSFORS_ECO-TRACK">
+                    <wheel/>
+                    <wheel/>
+                    <wheel/>
+                    <wheel/>
+                    <wheel/>
+                    <wheel/>
+                    <wheel/>
+                    <wheel/>
+                </wheels>
+                <crawlers>
+                     <crawler filename="$data/shared/crawlers/olofsfors/track710_45R26_5/track710_45R26_5_magnum.xml" linkWheelNodes="frontLeftBoggieBackWheel frontLeftBoggieFrontWheel" isLeft="true" offset="0 0 0.75"/>
+                     <crawler filename="$data/shared/crawlers/olofsfors/track710_45R26_5/track710_45R26_5_magnum.xml" linkWheelNodes="frontRightBoggieBackWheel frontRightBoggieFrontWheel" isLeft="false" offset="0 0 0.75"/>
+                     <crawler filename="$data/shared/crawlers/olofsfors/track710_45R26_5/track710_45R26_5_magnum.xml" linkWheelNodes="backLeftBoggieBackWheel backLeftBoggieFrontWheel" isLeft="true" offset="0 0 0.75"/>
+                     <crawler filename="$data/shared/crawlers/olofsfors/track710_45R26_5/track710_45R26_5_magnum.xml" linkWheelNodes="backRightBoggieBackWheel backRightBoggieFrontWheel" isLeft="false" offset="0 0 0.75"/>
+                </crawlers>
+            </wheelConfiguration>				
+        </wheelConfigurations>
+
+        <ackermannSteeringConfigurations>
+            <ackermannSteering rotSpeed="25" rotMax="10" rotCenter="0 -0.3"/>
+        </ackermannSteeringConfigurations>
+
+        <rimMaterial materialTemplateName="JOHNDEERE_YELLOW1"/>
+
+        <hubs>
+            <hub linkNode="frontLeftBoggieFrontWheel" filename="wheels/hub/hub.xml" isLeft="true" scale="0.45 0.48 0.48" offset="0.012">
+				<material useRimColor="true" />
+			</hub>
+			<hub linkNode="frontLeftBoggieBackWheel" filename="wheels/hub/hub.xml" isLeft="true" scale="0.45 0.48 0.48" offset="0.012">
+				<material useRimColor="true" />
+			</hub>
+			<hub linkNode="frontRightBoggieFrontWheel" filename="wheels/hub/hub.xml" isLeft="false" scale="0.45 0.48 0.48" offset="0.012">
+				<material useRimColor="true" />
+			</hub>
+			<hub linkNode="frontRightBoggieBackWheel" filename="wheels/hub/hub.xml" isLeft="false" scale="0.45 0.48 0.48" offset="0.012">
+				<material useRimColor="true" />
+			</hub>
+			<hub linkNode="backLeftBoggieFrontWheel" filename="wheels/hub/hub.xml" isLeft="true" scale="0.45 0.48 0.48" offset="0.012">
+				<material useRimColor="true" />
+			</hub>
+			<hub linkNode="backLeftBoggieBackWheel" filename="wheels/hub/hub.xml" isLeft="true" scale="0.45 0.48 0.48" offset="0.012">
+				<material useRimColor="true" />
+			</hub>
+			<hub linkNode="backRightBoggieFrontWheel" filename="wheels/hub/hub.xml" isLeft="false" scale="0.45 0.48 0.48" offset="0.012">
+				<material useRimColor="true" />
+			</hub>
+			<hub linkNode="backRightBoggieBackWheel" filename="wheels/hub/hub.xml" isLeft="false" scale="0.45 0.48 0.48" offset="0.012">
+				<material useRimColor="true" />
+			</hub>
+        </hubs>
+		<hubMaterial useDesignColorIndex="16"/>
+		<hubBoltMaterial useDesignColorIndex="15"/>
+    </wheels>
+
+    <articulatedAxis rotNode="frontBackJoint" componentJointIndex="1" anchorActor="0" rotSpeed="-35" rotMax="44" rotMin="-44" customWheelIndices1="1 2 3 4" customWheelIndices2="5 6 7 8">
+        <sounds>
+            <steering template="hydraulicClose01" pitchScale="0.3" linkNodeOffset="0 0.7 1" innerRadius="15" outerRadius="25" fadeIn="0.1" fadeOut="0.1">
+                <volume indoor="0.5" outdoor="2.0"/>
+                <lowpassGain indoor="0.6" outdoor="1"/>
+            </steering>
+        </sounds>
+    </articulatedAxis>
+
+	<powerConsumer ptoRpm="350" neededMinPtoPower="5" neededMaxPtoPower="40" useTurnOnState="false"/>
+
+    <speedRotatingParts>
+        <speedRotatingPart nodes="1>2|6|0 0>0|4|1|0" wheelIndex="1" wheelScale="5"/>
+    </speedRotatingParts>
+
+    <enterable isTabbable="true" >
+        <enterReferenceNode node="1210G_main_component1" />
+        <exitPoint node="0>0|7" />
+
+        <cameras>
+            <camera node="0>0|13|0" rotatable="true" rotateNode="0>0|13" limit="true" useWorldXZRotation="true" rotMinX="-1.4" rotMaxX="1" transMin="6" transMax="40" translation="0 0 14" rotation="-18.5 180 0">
+                <raycastNode node="0>0|6|0"/>
+                <raycastNode node="0>0|6|1"/>
+                <raycastNode node="0>0|6|2"/>
+            </camera>		
+            <camera node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|0|0" rotatable="true" limit="true" rotMinX="-1.1" rotMaxX="0.4" transMin="0" transMax="0" isInside="true" useMirror="true" shadowFocusBox="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|0|1" useDefaultPositionSmoothing="false" suspensionNodeIndex="1" />
+            <camera node="folowcamera" rotatable="false" useWorldXZRotation="false" isInside="true" allowHeadTracking="true" useMirror="true" shadowFocusBox="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|0|1" />				
+            <camera node="1>2|0|0|3|0|0" 		rotatable="false" 	useWorldXZRotation="false" allowHeadTracking="true"/>					
+        </cameras>
+
+        <characterNode node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|3|0|0" cameraMinDistance="0.5">
+            <target ikChain="rightFoot" targetNode="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|1|0" />
+            <target ikChain="leftFoot"  targetNode="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|1|1" />
+            <target ikChain="rightArm" targetNode="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|3|5|0|0|0"/>
+            <target ikChain="leftArm"   targetNode="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|3|4|0|2|1|0|0" poseId="flatFingers"/>
+        </characterNode>
+
+        <characterTargetNodeModifier node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|3|4|0|2|1|0|0" transitionTime="0.1" poseId="flatFingers">
+            <state node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|3|4|0|2|0|0" referenceNode="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|3|4|0|2|0" poseId="narrowFingers"/>
+        </characterTargetNodeModifier>
+
+        <characterTargetNodeModifier node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|1|0" transitionTime="0.1" >
+            <state node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|1|2" referenceNode="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|5|0|0" directionReferenceNode="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|5|0|0|0" />
+        </characterTargetNodeModifier>
+
+        <mirrors>
+            <mirror node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|4" prio="1" />
+			
+            <mirror node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|5|3|0|19|0" prio="2" cameraNode="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|12" cameraFovY="90" reflectionScale="1" nightReflectionScale="10"/>	
+        </mirrors>
+
+
+        <dashboards>
+            <dashboard displayType="TEXT" valueType="time" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|5|3|0|7" textColor="0.8 0.8 0.8" textSize="0.004" textMask="00:00" emissiveScale="0.5" font="GENERIC" textAlignment="CENTER" groups="ELECTRONICS_ACTIVE"/>
+            <dashboard displayType="TEXT" valueType="operatingTime" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|5|3|0|8" textColor="0.8 0.8 0.8" emissiveScale="0.5" textSize="0.004" textMask="0000.0h" font="GENERIC" groups="ELECTRONICS_ACTIVE"/>
+            <dashboard displayType="TEXT" valueType="outsideTemperature" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|5|3|0|9" textColor="0.8 0.8 0.8" emissiveScale="0.5" textSize="0.004" textMask="00" font="GENERIC" textAlignment="LEFT" groups="ELECTRONICS_ACTIVE"/>
+        </dashboards>
+    </enterable>
+
+    <reverseDriving animationName="reverseDriving" hideCharacterOnChange="false" inverseTransmission="true">
+            <target ikChain="rightFoot" targetNode="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|1|0" />
+            <target ikChain="leftFoot"  targetNode="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|1|1" />
+            <target ikChain="rightArm" targetNode="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|3|5|0|0|0"/>
+            <target ikChain="leftArm"   targetNode="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|3|4|0|2|1|0|0"/>
+    </reverseDriving>
+
+    <drivable>
+        <steeringWheel node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|3|4|0|2|1|0" indoorRotation="-14" outdoorRotation="-14"/>
+
+        <dashboards>
+            <dashboard displayType="ROT" valueType="accelerationAxis" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|5|0|0" minRot="0 0 0" maxRot="0 -14 0" doInterpolation="true" groups="ELECTRONICS_ACTIVE"/>
+        </dashboards>
+    </drivable>
+
+    <lights>
+		<sharedLight linkNode="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|2|0|0" lightTypes="0" filename="$data/shared/assets/lights/lizard/workingLight36.xml"/>
+		<sharedLight linkNode="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|2|0|1" lightTypes="0" filename="$data/shared/assets/lights/lizard/workingLight36.xml"/>
+
+		<sharedLight linkNode="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|2|0|2" lightTypes="2" filename="$data/shared/assets/lights/lizard/workingLight36.xml"/>
+		<sharedLight linkNode="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|2|0|3" lightTypes="2" filename="$data/shared/assets/lights/lizard/workingLight36.xml"/>	
+		<sharedLight linkNode="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|2|0|4" lightTypes="2" filename="$data/shared/assets/lights/lizard/workingLight36.xml"/>	
+		<sharedLight linkNode="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|2|0|5" lightTypes="2" filename="$data/shared/assets/lights/lizard/workingLight36.xml"/>	
+		<sharedLight linkNode="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|2|0|6" lightTypes="2" filename="$data/shared/assets/lights/lizard/workingLight36.xml"/>	
+		<sharedLight linkNode="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|2|0|7" lightTypes="2" filename="$data/shared/assets/lights/lizard/workingLight36.xml"/>
+
+		<sharedLight linkNode="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|2|0|8" lightTypes="1" filename="$data/shared/assets/lights/lizard/workingLight36.xml"/>		
+		<sharedLight linkNode="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|2|0|9" lightTypes="1" filename="$data/shared/assets/lights/lizard/workingLight36.xml"/>		
+		<sharedLight linkNode="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|2|0|10" lightTypes="1" filename="$data/shared/assets/lights/lizard/workingLight36.xml"/>		
+		<sharedLight linkNode="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|2|0|11" lightTypes="1" filename="$data/shared/assets/lights/lizard/workingLight36.xml"/>		
+		<sharedLight linkNode="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|2|0|12" lightTypes="1" filename="$data/shared/assets/lights/lizard/workingLight36.xml"/>		
+		<sharedLight linkNode="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|2|0|13" lightTypes="1" filename="$data/shared/assets/lights/lizard/workingLight36.xml"/>
+
+		<sharedLight linkNode="1>2|0|0|0|6|0" lightTypes="1" filename="$data/shared/assets/lights/lizard/workingLight36.xml"/>
+		<sharedLight linkNode="1>2|0|0|0|6|1" lightTypes="1" filename="$data/shared/assets/lights/lizard/workingLight36.xml"/>		
+
+		<sharedLight linkNode="0>0|1|0" lightTypes="1" filename="$data/shared/assets/lights/lizard/workingLight36.xml"/>		
+		<sharedLight linkNode="0>0|1|1" lightTypes="1" filename="$data/shared/assets/lights/lizard/workingLight36.xml"/>		
+		<sharedLight linkNode="1>5|0" lightTypes="1" filename="$data/shared/assets/lights/lizard/workingLight36.xml"/>			
+		
+        <states>
+            <state lightTypes="0"/>
+            <state lightTypes="0 2"/>
+            <state lightTypes="0 2 1"/>
+        </states>
+        <realLights>
+            <low>
+                <light node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|2|1|0" lightTypes="0" excludedLightTypes="2"/>
+                <light node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|2|2|0" lightTypes="2"/>
+                <light node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|2|2|2" lightTypes="1"/>
+            </low>
+            <high>
+                <light node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|2|1|1" lightTypes="0" excludedLightTypes="2"/>
+                <light node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|2|2|1" lightTypes="2"/>
+                <light node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|2|2|3" lightTypes="1"/>
+                <light node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|2|2|5" lightTypes="1"/>
+                <light node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|2|2|4" lightTypes="1"/>
+
+                <light node="1>2|0|0|0|6|2" lightTypes="1"/>
+				
+                <light node="0>0|1|2" lightTypes="1"/>
+                <light node="1>5|1" lightTypes="1"/>					
+                <interiorLight node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|2|1|2"/>
+            </high>
+        </realLights>
+        <dashboards>
+            <dashboard displayType="EMITTER" valueType="lightState" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|3|4|0|3" lightTypes="0" intensity="0.2" groups="ELECTRONICS_ACTIVE"/>
+            <dashboard displayType="EMITTER" valueType="lightState" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|3|5|2" lightTypes="0" intensity="0.2" groups="ELECTRONICS_ACTIVE"/>			
+            <dashboard displayType="EMITTER" valueType="lightState" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|3|5|0|8" lightTypes="1" intensity="0.2" groups="ELECTRONICS_ACTIVE" emitColor="GREEN" inactiveGroups="LIGHT_ENABLED" inactiveIntensity="0.2" inactiveColor="ORANGE"/>
+            <dashboard displayType="EMITTER" valueType="lightState" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|5|3|0|15" lightTypes="1" intensity="0.2" groups="ELECTRONICS_ACTIVE" emitColor="GREEN"/>
+            <dashboard displayType="EMITTER" valueType="lightState" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|3|5|0|7" lightTypes="2" intensity="0.2" groups="ELECTRONICS_ACTIVE" emitColor="GREEN" inactiveGroups="LIGHT_ENABLED" inactiveIntensity="0.2" inactiveColor="ORANGE"/>
+            <dashboard displayType="EMITTER" valueType="lightState" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|5|3|0|14" lightTypes="2" intensity="0.2" groups="ELECTRONICS_ACTIVE" emitColor="GREEN"/>
+            <dashboard displayType="EMITTER" valueType="lightState" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|3|5|0|2" emitColor="BLUE" lightTypes="3" intensity="0.2" groups="ELECTRONICS_ACTIVE" inactiveGroups="LIGHT_ENABLED" inactiveIntensity="0.2" inactiveColor="WHITE"/>
+            <dashboard displayType="EMITTER" valueType="lightState" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|5|3|0|13" emitColor="BLUE" lightTypes="3" intensity="0.2" groups="ELECTRONICS_ACTIVE"/>
+            <dashboard displayType="EMITTER" valueType="turnLightLeft" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|3|5|0|5" intensity="0.2" groups="ELECTRONICS_ACTIVE"/>
+            <dashboard displayType="EMITTER" valueType="turnLightRight" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|3|5|0|6" intensity="0.2" groups="ELECTRONICS_ACTIVE"/>
+            <dashboard displayType="EMITTER" valueType="turnLightHazard" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|3|5|0|1" intensity="0.2" groups="ELECTRONICS_ACTIVE"/>
+            <dashboard displayType="EMITTER" valueType="turnLightLeft" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|5|3|0|11" emitColor="GREEN" intensity="0.1" groups="ELECTRONICS_ACTIVE"/>
+            <dashboard displayType="EMITTER" valueType="turnLightRight" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|5|3|0|12" emitColor="GREEN" intensity="0.1" groups="ELECTRONICS_ACTIVE"/>
+        </dashboards>
+		
+        <beaconLights>
+            <beaconLight node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|13" filename="$data/shared/assets/beaconLights/hella/hellaBeaconLight01.xml"/>
+            <beaconLight node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|9|0|16" filename="$data/shared/assets/beaconLights/hella/hellaBeaconLight01.xml"/>				
+        </beaconLights>			
+    </lights>
+
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration>
+                <fillUnits>
+                    <fillUnit unitTextOverride="$l10n_unit_literShort" showOnHud="false" showInShop="false" fillTypes="diesel" capacity="167">
+                        <exactFillRootNode node="0>0|9"/>
+                        <dashboard displayType="TEXT" valueType="fillLevelPct" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|5|3|0|6" textColor="0.8 0.8 0.8" emissiveScale="0.5" textMask="00%" textSize="0.004" textAlignment="CENTER" font="GENERIC" groups="ELECTRONICS_ACTIVE"/>
+                    </fillUnit>
+                    <fillUnit unitTextOverride="$l10n_unit_literShort" showOnHud="false" showInShop="false" showOnInfoHud="false" fillTypes="def" capacity="16"/>
+                </fillUnits>
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+    </fillUnit>
+	
+		    <attacherJoints>
+        <attacherJoint node="1>7" rootNode="1210G_main_component2" jointType="trailer" lowerRotLimit="10 60 50" upperRotRotationOffset="0" allowsJointLimitMovement="false" comboTime="1">
+            <schema position="1 0" rotation="0" invertX="false"/>
+        </attacherJoint>
+        <attacherJoint node="0>0|12" rootNode="1210G_main_component2" jointType="trailer" lowerRotLimit="10 60 50" upperRotRotationOffset="0" allowsJointLimitMovement="false" comboTime="1">
+            <schema position="1 0" rotation="0" invertX="false"/>
+        </attacherJoint>		
+    </attacherJoints>
+
+    <motorized>
+        <consumerConfigurations>
+            <consumerConfiguration>
+                <consumer fillUnitIndex="1" usage="20" fillType="diesel" /> <!-- usage is per hour at max load and max rpm -->
+                <consumer fillUnitIndex="2" usage="8" fillType="def" /> <!-- usage is per hour at max load and max rpm -->
+            </consumerConfiguration>
+        </consumerConfigurations>
+
+        <differentialConfigurations>
+            <differentialConfiguration>
+                <differentials>
+                    <differential torqueRatio="0.5" maxSpeedRatio="1.2" wheelIndex1="1" wheelIndex2="2" /> <!-- front left-left -->
+                    <differential torqueRatio="0.5" maxSpeedRatio="1.2" wheelIndex1="3" wheelIndex2="4" /> <!-- front right-right -->
+                    <differential torqueRatio="0.5" maxSpeedRatio="1.2" wheelIndex1="5" wheelIndex2="6" /> <!-- back left-left -->
+                    <differential torqueRatio="0.5" maxSpeedRatio="1.2" wheelIndex1="7" wheelIndex2="8" /> <!-- back right-right -->
+
+                    <differential torqueRatio="0.5" maxSpeedRatio="1.6" differentialIndex1="1" differentialIndex2="2" /><!-- front-left-right -->
+                    <differential torqueRatio="0.5" maxSpeedRatio="1.6" differentialIndex1="3" differentialIndex2="4" /><!-- back-left-right -->
+                    <differential torqueRatio="0.5" maxSpeedRatio="1.2" differentialIndex1="5" differentialIndex2="6" /><!-- front-back -->
+                </differentials>
+            </differentialConfiguration>
+        </differentialConfigurations>
+
+        <motorConfigurations>
+            <motorConfiguration name="1210G" hp="209" price="0">
+                <motor torqueScale="1.210" minRpm="850" maxRpm="2200" brakeForce="6.5" lowBrakeForceScale="0.5" dampingRateScale="1.6">
+                    <torque normRpm="0.45" torque="0.9"/>
+                    <torque normRpm="0.5" torque="0.97"/>
+                    <torque normRpm="0.59" torque="1"/>
+                    <torque normRpm="0.72" torque="1"/>
+                    <torque normRpm="0.86" torque="0.88"/>
+                    <torque normRpm="1" torque="0.72"/>
+                </motor>
+                <transmission name="$l10n_info_transmission_cvt">
+				
+                    <forwardGear maxSpeed="7.5" name="L"/>
+                    <forwardGear maxSpeed="23" name="H"/>
+                </transmission>					
+            </motorConfiguration>
+        </motorConfigurations>
+
+        <exhaustEffects>
+            <exhaustEffect node="0>0|8" filename="$data/effects/exhaust/exhaust.i3d" minRpmColor="0.9 0.9 0.9 0.1" maxRpmColor="0.9 0.9 0.9 0.4" minRpmScale="0.05" maxRpmScale="0.5" />
+        </exhaustEffects>
+
+        <motorStartDuration>3800</motorStartDuration>
+
+        <dashboards>
+            <dashboard displayType="TEXT" valueType="motorTemperature" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|5|3|0|3" textColor="0.8 0.8 0.8" emissiveScale="0.5" textMask="000" textSize="0.004" textAlignment="CENTER" font="GENERIC" groups="ELECTRONICS_ACTIVE"/>
+            <dashboard displayType="TEXT" valueType="motorTemperature" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|5|3|0|4" textColor="0.8 0.8 0.8" emissiveScale="0.5" textMask="000" textSize="0.004" textAlignment="CENTER" font="GENERIC" groups="ELECTRONICS_ACTIVE"/>
+            <dashboard displayType="TEXT" valueType="battery" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|5|3|0|5" textColor="0.8 0.8 0.8" emissiveScale="0.5" textMask="00V" textSize="0.004" textAlignment="CENTER" font="GENERIC" groups="ELECTRONICS_ACTIVE"/>
+            <dashboard displayType="EMITTER" valueType="directionNeutral" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|5|3|0|10" intensity="0.2" groups="ELECTRONICS_ACTIVE"/>
+            <dashboard displayType="VISIBILITY" valueType="directionNeutral" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|5|3|0|10" intensity="0.2" groups="ELECTRONICS_ACTIVE"/>
+            <dashboard displayType="ANIMATION" valueType="speed" animName="needleSpeedAnim" groups="MOTOR_ACTIVE"/>
+            <dashboard displayType="ANIMATION" valueType="rpm" animName="needleRPMAnim" doInterpolation="true" interpolationSpeed="0.5" groups="MOTOR_ACTIVE"/>			
+        </dashboards>
+    </motorized>
+
+	<licensePlates defaultPlacement="BACK_ONLY">
+        <licensePlate frame="false" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|10" position="ANY" preferedType="ELONGATED" placementArea="0.06 0.26 0.07 0.26"/>
+    </licensePlates>
+
+    <wipers>
+        <wiper animName="wiperFrontAnimation" >
+            <state animSpeed="0.75" animPause="2.0" />
+            <state animSpeed="0.75" animPause="0.0" />
+            <state animSpeed="1.10" animPause="0.0" />
+        </wiper>
+        <wiper animName="wiperSideAnimation" >
+            <state animSpeed="0.75" animPause="4.0" />
+            <state animSpeed="0.75" animPause="2.0" />
+            <state animSpeed="1.10" animPause="0.0" />
+        </wiper>
+
+        <dashboards>
+            <dashboard displayType="EMITTER" valueType="state" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|3|5|0|3" emitColor="GREEN" intensity="0.2" groups="ELECTRONICS_ACTIVE" inactiveGroups="LIGHT_ENABLED" inactiveIntensity="0.2" inactiveColor="WHITE"/>
+        </dashboards>
+    </wipers>
+
+	<connectionHoses>       
+		<localHose>         
+            <hose type="hydraulicIn" node="0>0|4|2|0|1"  length="0.5" diameter="0.017" straighteningFactor="0.5" isTwoPointHose="true"/>
+            <target type="CABLE_BUNDLE" node="0>0|4|3|1" straighteningFactor="0.5"/>
+        </localHose>
+		<localHose>         
+            <hose type="hydraulicIn" node="0>0|4|2|0|2"  length="0.5" diameter="0.017" straighteningFactor="0.5" isTwoPointHose="true"/>
+            <target type="CABLE_BUNDLE" node="0>0|4|3|0" straighteningFactor="0.5"/>
+        </localHose>
+
+		<localHose>         
+            <hose type="CABLE_BUNDLE" hoseType="JOHNDEERE" node="1>2|5|0"  length="1.5" diameter="0.12" straighteningFactor="0.8" isTwoPointHose="true"/>
+            <target type="CABLE_BUNDLE" node="0>0|4|8|0" straighteningFactor="2"/>
+        </localHose>
+		<localHose>         
+            <hose type="CABLE_BUNDLE"  node="1>2|5|3"  length="1" diameter="0.07" straighteningFactor="2" isTwoPointHose="true"/>
+            <target type="CABLE_BUNDLE" node="1>2|5|4" straighteningFactor="0"/>
+        </localHose>		
+		<localHose>         
+            <hose type="CABLE_BUNDLE" hoseType="JOHNDEERE" node="1>2|5|1"  length="2" diameter="0.06" straighteningFactor="2" isTwoPointHose="true"/>
+            <target type="CABLE_BUNDLE" node="0>0|4|8|1" straighteningFactor="2"/>
+        </localHose>
+		<localHose>         
+            <hose type="CABLE_BUNDLE" hoseType="JOHNDEERE" node="1>2|5|2"  length="2" diameter="0.06" straighteningFactor="2" isTwoPointHose="true"/>
+            <target type="CABLE_BUNDLE" node="0>0|4|8|2" straighteningFactor="2"/>
+        </localHose>
+
+            <!-- CF7 SLANGOS			-->
+		<localHose>         
+            <hose type="CABLE_BUNDLE" hoseType="JOHNDEERE" node="1>2|5|5"  length="3.5" diameter="0.09" straighteningFactor="2.5" isTwoPointHose="true"/>
+            <target type="CABLE_BUNDLE" node="1>2|0|0|0|7|0" straighteningFactor="4" />
+        </localHose>
+		<localHose>         
+            <hose type="CABLE_BUNDLE" hoseType="JOHNDEERE" node="1>2|5|6"  length="3.5" diameter="0.09" straighteningFactor="2.5" isTwoPointHose="true"/>
+            <target type="CABLE_BUNDLE" node="1>2|0|0|0|7|1" straighteningFactor="4" />
+        </localHose>
+
+		<localHose>         
+            <hose type="hydraulicIn"  node="1>2|0|0|0|7|2"  length="0.5" diameter="0.02" straighteningFactor="1" isTwoPointHose="true"/>
+            <target type="CABLE_BUNDLE" node="1>2|0|0|0|2|2" straighteningFactor="1"/>
+        </localHose>
+
+		<localHose>         
+            <hose type="hydraulicIn"  node="1>2|0|0|0|7|3"  length="3" diameter="0.02" straighteningFactor="0.5" isTwoPointHose="true"/>
+            <target type="CABLE_BUNDLE" node="1>2|0|0|0|2|3" straighteningFactor="3.2"/>
+        </localHose>
+
+		<localHose>         
+            <hose type="CABLE_BUNDLE" hoseType="JOHNDEERE" node="1>2|0|0|0|1|2"  length="2" diameter="0.07" straighteningFactor="1.5" isTwoPointHose="true"/>
+            <target type="CABLE_BUNDLE" node="1>2|0|0|0|7|4" straighteningFactor="1.3"/>
+        </localHose>
+
+		<localHose>         
+            <hose type="hydraulicIn"  node="1>2|0|0|0|7|5"  length="2.2" diameter="0.02" straighteningFactor="3.5" isTwoPointHose="true"/>
+            <target type="CABLE_BUNDLE" node="1>2|0|0|0|0|2|1" straighteningFactor="1.5"/>
+        </localHose>
+		<localHose>         
+            <hose type="hydraulicIn"  node="1>2|0|0|0|7|6"  length="2.2" diameter="0.02" straighteningFactor="3.5" isTwoPointHose="true"/>
+            <target type="CABLE_BUNDLE" node="1>2|0|0|0|0|2|2" straighteningFactor="1.5"/>
+        </localHose>
+		<localHose>         
+            <hose type="hydraulicIn"  node="1>2|0|0|0|7|7"  length="2.2" diameter="0.02" straighteningFactor="3.5" isTwoPointHose="true"/>
+            <target type="CABLE_BUNDLE" node="1>2|0|0|0|0|2|3" straighteningFactor="1.5"/>
+        </localHose>
+		<localHose>         
+            <hose type="hydraulicIn"  node="1>2|0|0|0|7|8"  length="2.2" diameter="0.02" straighteningFactor="3.5" isTwoPointHose="true"/>
+            <target type="CABLE_BUNDLE" node="1>2|0|0|0|0|2|4" straighteningFactor="1.5"/>
+        </localHose>
+		<localHose>         
+            <hose type="hydraulicIn"  node="1>2|0|0|0|7|9"  length="2.2" diameter="0.02" straighteningFactor="3.5" isTwoPointHose="true"/>
+            <target type="CABLE_BUNDLE" node="1>2|0|0|0|0|2|5" straighteningFactor="1.5"/>
+        </localHose>
+		<localHose>         
+            <hose type="hydraulicIn"  node="1>2|0|0|0|7|10"  length="2.2" diameter="0.02" straighteningFactor="3.5" isTwoPointHose="true"/>
+            <target type="CABLE_BUNDLE" node="1>2|0|0|0|0|2|6" straighteningFactor="1.5"/>
+        </localHose>
+
+		<localHose>         
+            <hose type="CABLE_BUNDLE" hoseType="JOHNDEERE" node="1>2|0|0|0|0|2|7"  length="2" diameter="0.06" straighteningFactor="2" isTwoPointHose="true"/>
+            <target type="CABLE_BUNDLE" node="1>2|0|0|0|0|0|1|0" straighteningFactor="2"/>
+        </localHose>
+		<localHose>         
+            <hose type="CABLE_BUNDLE" hoseType="JOHNDEERE" node="1>2|0|0|0|0|2|8"  length="2" diameter="0.06" straighteningFactor="2" isTwoPointHose="true"/>
+            <target type="CABLE_BUNDLE" node="1>2|0|0|0|0|0|1|1" straighteningFactor="2"/>
+        </localHose>
+
+		<localHose>         
+            <hose type="CABLE_BUNDLE" hoseType="JOHNDEERE" node="1>2|0|0|0|0|0|1|2"  length="2" diameter="0.06" straighteningFactor="2" isTwoPointHose="true"/>
+            <target type="CABLE_BUNDLE" node="1>2|0|0|0|0|0|0|2|4|0" straighteningFactor="2"/>
+        </localHose>
+		<localHose>         
+            <hose type="CABLE_BUNDLE" hoseType="JOHNDEERE" node="1>2|0|0|0|0|0|1|3"  length="2" diameter="0.06" straighteningFactor="2" isTwoPointHose="true"/>
+            <target type="CABLE_BUNDLE" node="1>2|0|0|0|0|0|0|2|4|1" straighteningFactor="2"/>
+        </localHose>
+
+		<localHose>         
+            <hose type="hydraulicIn"  node="1>2|0|0|0|0|0|0|2|5"  length="2" diameter="0.028" straighteningFactor="1" isTwoPointHose="true"/>
+            <target type="CABLE_BUNDLE" node="1>2|0|0|0|0|0|0|0|0|0|0|4|1" straighteningFactor="1"/>
+        </localHose>
+		<localHose>         
+            <hose type="hydraulicIn"  node="1>2|0|0|0|0|0|0|2|6"  length="2" diameter="0.028" straighteningFactor="1" isTwoPointHose="true"/>
+            <target type="CABLE_BUNDLE" node="1>2|0|0|0|0|0|0|0|0|0|0|4|2" straighteningFactor="1"/>
+        </localHose>
+		<localHose>         
+            <hose type="hydraulicIn"  node="1>2|0|0|0|0|0|0|2|7"  length="2" diameter="0.028" straighteningFactor="1" isTwoPointHose="true"/>
+            <target type="CABLE_BUNDLE" node="1>2|0|0|0|0|0|0|0|0|0|0|4|3" straighteningFactor="1"/>
+        </localHose>
+		<localHose>         
+            <hose type="hydraulicIn"  node="1>2|0|0|0|0|0|0|2|8"  length="2" diameter="0.028" straighteningFactor="1" isTwoPointHose="true"/>
+            <target type="CABLE_BUNDLE" node="1>2|0|0|0|0|0|0|0|0|0|0|4|4" straighteningFactor="1"/>
+        </localHose>
+
+		<localHose>         
+            <hose type="CABLE_BUNDLE" hoseType="JOHNDEERE" node="1>2|0|0|0|5|0"  length="1" diameter="0.015" straighteningFactor="1" isTwoPointHose="true"/>
+            <target type="CABLE_BUNDLE" node="1>2|0|0|0|6|3" straighteningFactor="1"/>
+        </localHose>
+
+		<localHose>         
+            <hose type="CABLE_BUNDLE" hoseType="JOHNDEERE" node="1>2|0|0|0|5|1"  length="0.5" diameter="0.015" straighteningFactor="0.5" isTwoPointHose="true"/>
+            <target type="CABLE_BUNDLE" node="1>2|0|0|0|6|4" straighteningFactor="0.5"/>
+        </localHose>
+
+		<localHose>         
+            <hose type="hydraulicIn"  node="1>2|0|0|0|0|0|0|2|5"  length="2" diameter="0.028" straighteningFactor="1" isTwoPointHose="true"/>
+            <target type="CABLE_BUNDLE" node="1>2|0|0|0|0|0|0|0|0|0|0|4|1" straighteningFactor="1"/>
+        </localHose>
+		
+		<localHose>         
+            <hose type="hydraulicIn"  node="1>2|0|0|0|0|0|0|0|0|0|0|0|2|0|1|0"  length="1" diameter="0.026" straighteningFactor="0.5" isTwoPointHose="true"/>
+            <target type="CABLE_BUNDLE" node="1>2|0|0|0|0|0|0|0|0|0|0|0|0|0|0|2" straighteningFactor="0.5"/>
+        </localHose>
+		<localHose>         
+            <hose type="hydraulicIn"  node="1>2|0|0|0|0|0|0|0|0|0|0|0|2|0|1|1"  length="1" diameter="0.026" straighteningFactor="1" isTwoPointHose="true"/>
+            <target type="CABLE_BUNDLE" node="1>2|0|0|0|0|0|0|0|0|0|0|0|0|0|0|1" straighteningFactor="1"/>
+        </localHose>		
+		
+	</connectionHoses>
+
+    <logGrab>
+        <logGrabConfigurations>
+            <logGrabConfiguration>
+                <grab jointNode="grapple_component7" jointRoot="grapple_component7" lockAllAxis="true" >
+                    <trigger node="logGrabTrigger" />
+
+                    <claw componentJointIndex="7" axis="3" rotationOffsetThreshold="30" rotationOffsetInverted="false" rotationOffsetTime="400">
+                        <movingTool node="componentJointGrabLeft" direction="1"/>
+                    </claw>
+                    <claw componentJointIndex="8" axis="3" rotationOffsetThreshold="-30" rotationOffsetInverted="false" rotationOffsetTime="400">
+                    </claw>
+                    <treeDetection node="treeDetectionNode01" sizeY="1.2" sizeZ="2"/>
+                </grab>
+            </logGrabConfiguration>
+        </logGrabConfigurations>
+    </logGrab>
+
+    <animations>
+
+        <animation name="wiperFrontAnimation" isKeyframe="true">
+            <part node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|6|1|0" startTime="0.0" endTime="0.5" startRot="16.805 180.918 0.163" endRot="21.944 182.079 24.814" />
+            <part node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|6|1|0" startTime="0.5" endTime="1.0" startRot="21.944 182.079 24.814" endRot="15.907 183.24 49.465" />
+            <part node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|6|1" startTime="0.0" endTime="0.5" startRot="-10.046 -0.012 -0.0" endRot="-8.25 -3.863 -24.904" />
+            <part node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|6|1" startTime="0.5" endTime="1.0" startRot="-8.25 -3.863 -24.904" endRot="-6.455 -7.714 -49.807" />
+            <part node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|6|0" startTime="0.0" endTime="0.5" startRot="-10.045 -0.012 0.0" endRot="-8.25 -3.863 -24.904" />
+            <part node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|6|0" startTime="0.5" endTime="1.0" startRot="-8.25 -3.863 -24.904" endRot="-6.454 -7.714 -49.807" />
+
+            <sound template="wiper1" startTime="0" endTime="1" direction="1"  volumeScale="1" pitchScale="0.6" fadeOut="0.1" linkNode="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|6|1|0"/>
+            <sound template="wiper2" startTime="0" endTime="1" direction="-1" volumeScale="1" pitchScale="0.6" fadeOut="0.1" linkNode="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|6|1|0"/>
+        </animation>
+
+        <animation name="wiperSideAnimation" isKeyframe="true">
+            <part node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|6|2"     startTime="0.0" endTime="0.5" startRot="12.71 -80.201 0.0" endRot="73.115 -44.588 -62.894" />
+            <part node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|6|2"     startTime="0.5" endTime="1.0" startRot="73.115 -44.588 -62.894" endRot="93.902 10.931 -80.6" />
+            <part node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|6|2|0" startTime="0.0" endTime="0.5" startRot="-19.776 -7.887 0.656" endRot="-15.834 -7.887 0.656" />
+            <part node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|6|2|0" startTime="0.5" endTime="1.0" startRot="-15.834 -7.887 0.656" endRot="-15.477 -7.887 0.656" />
+            <part node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|9|0|2"      startTime="0.0" endTime="0.5" startRot="0.0 0.0 0.0" endRot="46.941 -9.799 3.372" />
+            <part node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|9|0|2"      startTime="0.5" endTime="1.0" startRot="46.941 -9.799 3.372" endRot="94.922 -11.338 -0.97" />
+            <part node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|9|0|2|0"  startTime="0.0" endTime="0.5" startRot="-92.081 -0.844 97.13" endRot="-92.052 4.7 94.739" />
+            <part node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|9|0|2|0"  startTime="0.5" endTime="1.0" startRot="-92.052 4.7 94.739" endRot="-92.01 -1.001 92.751" />
+
+            <sound template="wiper1" startTime="0" endTime="1" direction="1"  volumeScale="0.9" pitchScale="0.8" fadeOut="0.1" linkNode="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|9|0|2"/>
+            <sound template="wiper2" startTime="0" endTime="1" direction="-1" volumeScale="0.9" pitchScale="0.8" fadeOut="0.1" linkNode="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|9|0|2"/>
+
+            <sound template="wiper1" startTime="0" endTime="1" direction="1"  volumeScale="0.9" pitchScale="0.78" fadeOut="0.1" linkNode="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|6|2"/>
+            <sound template="wiper2" startTime="0" endTime="1" direction="-1" volumeScale="0.9" pitchScale="0.78" fadeOut="0.1" linkNode="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|6|2"/>
+        </animation>
+		
+		<animation name="laiptai">
+            <part node="0>0|2|0" startTime="0" endTime="3" startRot="160 0 0" endRot="0 0 0"/>
+											
+            <sound template="hingeMedium" startTime="0.01" direction="1"  volumeScale="0.4" pitchScale="1.2" linkNode="0>0|2|0"/>
+            <sound template="hingeMedium" startTime="0.9"  direction="-1" volumeScale="0.4" pitchScale="1.2" linkNode="0>0|2|0"/>
+            <sound template="clackVar6"   startTime="2.99" direction="1"  volumeScale="0.6" pitchScale="1"   linkNode="0>0|2|0"/>
+            <sound template="sheetImp02"  startTime="2.99" direction="1"  volumeScale="0.9" pitchScale="1.5" linkNode="0>0|2|0"/>
+            <sound template="clackVar6"   startTime="0.01" direction="-1" volumeScale="0.6" pitchScale="1"   linkNode="0>0|2|0"/>
+            <sound template="sheetImp02"  startTime="0.01" direction="-1" volumeScale="0.9" pitchScale="1.5" linkNode="0>0|2|0"/>			
+        </animation>
+
+        <animation name="Durys">
+			<part node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|9|0" startTime="0" endTime="2" startRot="0 0 0" endRot="0 75 0"/>
+			
+            <sound template="lizardFloodLight" startTime="0.01" direction="1" pitchScale="1.2" supportsReverb="false" linkNode="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|9|0">
+                <volume indoor="1.1" outdoor="1.6"/>
+            </sound>	
+	    <sound template="lizardFloodLight" startTime="0.01" direction="-1" pitchScale="1.4" supportsReverb="false" linkNode="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|9|0">
+                <volume indoor="1.0" outdoor="1.5"/>
+            </sound>
+            <sound template="lizardFloodLight" startTime="2" direction="-1" pitchScale="1.2" supportsReverb="false" linkNode="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|9|0">
+                <volume indoor="1.1" outdoor="1.6"/>
+            </sound>
+        </animation>
+
+        <animation name="reverseDriving">
+            <part node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0" startTime="0" endTime="3" startRot="0 180 0" endRot="0 0 0"/>
+            <part node="craneFollowingRef" startTime="0" endTime="1" startTrans="0 0 0" endTrans="0 0 5.2"/>
+            <part node="cabinGrappleAim" startTime="0" endTime="1" startTrans="0 0 0.25" endTrans="0 0 0"/>
+        </animation>
+
+        <animation name="folding" resetOnStart="false">
+            <part node="cabinCraneFollowingMovementRefFrame" startTime="0" endTime="1" startRot="0 0 0" endRot="0 0 0" startSlopeCompensationLevel="0" endSlopeCompensationLevel="1"/>
+        </animation>
+		
+        <animation name="stoike1" resetOnStart="false">
+            <part node="1>3|1" startTime="0" endTime="2" startTrans="0 -0.071 0.62" endTrans="0 -0.071 1.364"/>				
+        </animation>
+        <animation name="stoike2" resetOnStart="false">
+            <part node="1>3|2" startTime="0" endTime="2" startTrans="0 -0.071 -0.85" endTrans="0 -0.071 -1.574"/>
+        </animation>
+        <animation name="stoike3" resetOnStart="false">
+            <part node="1>3|3" startTime="0" endTime="2" startTrans="0 -0.071 -1.86" endTrans="0 -0.071 -1.133"/>
+        </animation>		
+
+		<animation name="Beacon">	
+            <part node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|13" startTime="0" endTime="0" visibility="false"/>
+            <part node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|13" startTime="0" endTime="0.1" visibility="true"/>
+            <part node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|9|0|16" startTime="0" endTime="0" visibility="true"/>
+            <part node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|9|0|16" startTime="0" endTime="0.1" visibility="false"/>					
+        </animation>		
+
+        <animation name="needleSpeedAnim" isKeyframe="true">
+            <part node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|5|3|0|18|0" startTime="0"  endTime="5" startRot="0 0 0" endRot="0 -60 0"/>
+            <part node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|5|3|0|18|0" startTime="5" endTime="10" startRot="0 -60 0" endRot="0 -110 0"/>
+            <part node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|5|3|0|18|0" startTime="10" endTime="15" startRot="0 -110 0" endRot="0 -170 0"/>
+            <part node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|5|3|0|18|0" startTime="15" endTime="20" startRot="0 -170 0" endRot="0 -210 0"/>
+            <part node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|5|3|0|18|0" startTime="20" endTime="25" startRot="0 -210 0" endRot="0 -270 0"/>				
+        </animation>
+
+        <animation name="needleRPMAnim" isKeyframe="true">
+            <part node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|5|3|0|17|0" startTime="0"  endTime="500" startRot="0 0 0" endRot="0 -60 0"/>
+            <part node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|5|3|0|17|0" startTime="500" endTime="1000" startRot="0 -60 0" endRot="0 -110 0"/>
+            <part node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|5|3|0|17|0" startTime="1000" endTime="1500" startRot="0 -110 0" endRot="0 -170 0"/>
+            <part node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|5|3|0|17|0" startTime="1500" endTime="2000" startRot="0 -170 0" endRot="0 -210 0"/>
+            <part node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|5|3|0|17|0" startTime="2000" endTime="2500" startRot="0 -210 0" endRot="0 -270 0"/>	
+        </animation>
+		
+        <animation name="atramaside" resetOnStart="false">
+            <part node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|3|4|0" startTime="0" endTime="2" startRot="0 0 0" endRot="0 -25 0"/>
+            <part node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|3|5" startTime="0" endTime="2" startRot="0 0 0" endRot="0 25 0"/>			
+        </animation>
+		
+        <animation name="atramaup" resetOnStart="false">
+            <part node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|3|4" startTime="0" endTime="1.5" startRot="0 0 0" endRot="-90 0 0"/>			
+        </animation>
+		
+        <animation name="grabLinkageAnimation">
+            <part node="grabRightLinkageAnimatedFrame" startTime="0" endTime="1" startRot="-88.5473385645 0 0" endRot="-5.9401957074 0 0"/>
+        </animation>
+
+        <animation name="stoikesA">
+            <part node="1>3|0|0|0" startTime="0" endTime="2" startTrans="0.362 0.723 0" endTrans="0.362 1.05 0"/>
+            <part node="1>3|0|1|0|0" startTime="0" endTime="2" startTrans="-0.362 0.723 0" endTrans="-0.362 1.05 0"/>
+
+            <part node="1>3|1|0|0" startTime="0" endTime="2" startTrans="0.362 0.723 0" endTrans="0.362 1.05 0"/>
+            <part node="1>3|1|1|0|0" startTime="0" endTime="2" startTrans="-0.362 0.723 0" endTrans="-0.362 1.05 0"/>
+
+            <part node="1>3|2|0|0" startTime="0" endTime="2" startTrans="0.362 0.723 0" endTrans="0.362 1.05 0"/>
+            <part node="1>3|2|1|0|0" startTime="0" endTime="2" startTrans="-0.362 0.723 0" endTrans="-0.362 1.05 0"/>
+
+            <part node="1>3|3|0|0" startTime="0" endTime="2" startTrans="0.362 0.723 0" endTrans="0.362 1.05 0"/>
+            <part node="1>3|3|1|0|0" startTime="0" endTime="2" startTrans="-0.362 0.723 0" endTrans="-0.362 1.05 0"/>
+			
+        </animation>		
+    </animations>
+
+    <foldable>
+        <foldingConfigurations>
+            <foldingConfiguration>
+                <foldingParts startMoveDirection="1" foldInputButton="IMPLEMENT_EXTRA4" turnOnFoldMaxLimit="0" turnOnFoldDirection="1" posDirectionText="$l10n_unfoldCab" negDirectionText="$l10n_foldCab" unfoldWarning="$l10n_Warning_Tilt">
+                    <foldingPart animationName="folding" speedScale="1"/>
+                </foldingParts>
+            </foldingConfiguration>
+        </foldingConfigurations>
+    </foldable>
+
+	<cylindered>
+        <movingTools>
+			<controlGroups>
+				<controlGroup name="$l10n_controlGroup_crane"/>
+				<controlGroup name="$l10n_controlGroup_crane"/>				
+			</controlGroups>		
+
+            <movingTool node="1>2|1" delayedNode="1>2|0|0" playSound="true">
+                <controls groupIndex="1" axis="AXIS_CRANE_ARM" invertAxis="true"  mouseSpeedFactor="0.3" iconName="CRANE_ARM1_ROTATE_Y" />
+                <rotation rotSpeed="40" rotAcceleration="50" rotMax="340" rotMin="20" rotationAxis="2" />
+                <componentJoint index="6" anchorActor="0"/>
+                <dependentMovingTool node="armXRotDependetMovingtool" speedScale="1" />					
+            </movingTool>
+			
+                    <movingTool node="armXRotDependetMovingtool" playSound="false">
+                <rotation rotSpeed="40" rotAcceleration="50" rotMax="340" rotMin="20" startRot="180" rotationAxis="2" />
+            </movingTool>			
+
+            <movingTool node="1>2|1|0" delayedNode="1>2|0|0|0" isConsumingPower="true" playSound="true">
+                <controls groupIndex="1" axis="AXIS_CRANE_ARM2" invertAxis="true" mouseSpeedFactor="0.3" iconName="CRANE_ARM1_ROTATE_X" />
+                <rotation rotSpeed="29" rotAcceleration="40" rotMax="25" rotMin="-80" startRot="-5" rotationAxis="1" />
+                <componentJoint index="6" anchorActor="0"/>					
+            </movingTool>
+            <movingTool node="1>2|1|0|0" delayedNode="1>2|0|0|0|0" isConsumingPower="true" playSound="true">
+                <controls groupIndex="1" axis="AXIS_CRANE_ARM3" invertAxis="true" mouseSpeedFactor="0.3" iconName="CRANE_ARM2_ROTATE_X" />
+                <rotation rotSpeed="39" rotAcceleration="80" rotMax="184.5" rotMin="7" startRot="55" rotationAxis="1"/>
+                <componentJoint index="6" anchorActor="0"/>						
+            </movingTool>
+
+            <!-- arm extension -->
+            <movingTool node="1>2|1|0|0|0" delayedNode="1>2|0|0|0|0|0">
+                <controls groupIndex="1" axis="AXIS_CRANE_ARM4" invertAxis="false" mouseSpeedFactor="0.3" iconName="CRANE_ARM2_TRANSLATE" />
+                <translation transSpeed="0.5" transAcceleration="8" transMax="1.9" transMin="0" startTrans="0" translationAxis="3" />
+                <componentJoint index="6" anchorActor="0"/>
+                <dependentMovingTool node="1>2|1|0|0|0|0" speedScale="1" />				
+            </movingTool>
+            <movingTool node="1>2|1|0|0|0|0" delayedNode="1>2|0|0|0|0|0|0" playSound="false">
+                <translation transSpeed="0.55" transAcceleration="8" transMax="2.05" transMin="0" startTrans="0" translationAxis="3" />
+                <componentJoint index="6" anchorActor="0"/>				
+            </movingTool>
+			
+            <!-- claw x rotation -->
+            <movingTool node="componentJointGrappleActor1Rot" playSound="true" isConsumingPower="true">
+                <controls axis="AXIS_CRANE_TOOL2" invertAxis="true" mouseSpeedFactor="0.3" iconName="GRABBER_ROTATE_Y" />
+                <rotation rotSpeed="-80" rotAcceleration="320" rotationAxis="2" startRot="0"/>
+                <componentJoint index="6" anchorActor="1" />
+            </movingTool>
+
+            <!-- claws rotation -->
+            <movingTool node="componentJointGrabLeft" playSound="true" isConsumingPower="true">
+                <controls axis="AXIS_CRANE_TOOL" invertAxis="true" mouseSpeedFactor="0.3" iconName="GRABBER_OPEN_CLOSE"/>
+                <rotation rotSpeed="-130" rotAcceleration="500" rotMax="70" rotMin="-58.5" rotationAxis="3" startRot="-58.5"/>
+                <componentJoint index="7" anchorActor="0"/>
+                <dependentAnimation name="grabLinkageAnimation" rotationAxis="3" minValue="-58.5" maxValue="70.0" />
+                <dependentPart node="grabRightLinkageDirection" />
+            </movingTool>
+            <movingTool node="grabRightLegacySaveSlot" playSound="false" allowSaving="true">
+                <rotation rotSpeed="0" rotAcceleration="500" rotMax="55" rotMin="-70" rotationAxis="3" startRot="55"/>
+            </movingTool>			
+			
+            <!-- Stoikes -->
+
+            <movingTool node="1>3|0|2" playSound="true">
+                <controls groupIndex="2" axis="AXIS_CRANE_ARM2" invertAxis="true" mouseSpeedFactor="0.3" iconName="CRANE_ARM2_TRANSLATE" />
+                <translation transSpeed="-0.2" transAcceleration="10" transMax="0.822" transMin="0.558" startTrans="0.558" translationAxis="2" />
+                <componentJoint index="6" anchorActor="0"/>				
+            </movingTool>
+
+
+            <movingTool node="1>3|0|0" playSound="true">
+                <controls groupIndex="2" axis="AXIS_CRANE_ARM" invertAxis="true" mouseSpeedFactor="0.3" iconName="CRANE_ARM2_TRANSLATE" />
+                <translation transSpeed="-0.2" transAcceleration="10" transMax="1.219" transMin="0.952" startTrans="0.952" translationAxis="1" />
+                <componentJoint index="6" anchorActor="0"/>
+                <dependentMovingTool node="1>3|0|1" speedScale="1" />
+                <dependentMovingTool node="1>3|1|0" speedScale="1" />
+                <dependentMovingTool node="1>3|1|1" speedScale="1" />	
+                <dependentMovingTool node="1>3|2|0" speedScale="1" />
+                <dependentMovingTool node="1>3|2|1" speedScale="1" />	
+                <dependentMovingTool node="1>3|3|0" speedScale="1" />
+                <dependentMovingTool node="1>3|3|1" speedScale="1" />					
+            </movingTool>
+
+                    <movingTool node="1>3|0|1" mouseSpeedFactor="0.3">
+                <translation transSpeed="0.2" transAcceleration="10" transMax="1.219" transMin="0.952" startTrans="1.219" translationAxis="1" />
+                <componentJoint index="6" anchorActor="0"/>
+                    </movingTool>
+                    <movingTool node="1>3|1|0" mouseSpeedFactor="0.3">
+                <translation transSpeed="-0.2" transAcceleration="10" transMax="1.219" transMin="0.952" startTrans="0.952" translationAxis="1" />
+                <componentJoint index="6" anchorActor="0"/>
+                    </movingTool>
+                    <movingTool node="1>3|1|1" mouseSpeedFactor="0.3">
+                <translation transSpeed="0.2" transAcceleration="10" transMax="1.219" transMin="0.952" startTrans="1.219" translationAxis="1" />
+                <componentJoint index="6" anchorActor="0"/>
+                    </movingTool>
+                    <movingTool node="1>3|2|0" mouseSpeedFactor="0.3">
+                <translation transSpeed="-0.2" transAcceleration="10" transMax="1.219" transMin="0.952" startTrans="0.952" translationAxis="1" />
+                <componentJoint index="6" anchorActor="0"/>
+                    </movingTool>
+                    <movingTool node="1>3|2|1" mouseSpeedFactor="0.3">
+                <translation transSpeed="0.2" transAcceleration="10" transMax="1.219" transMin="0.952" startTrans="1.219" translationAxis="1" />
+                <componentJoint index="6" anchorActor="0"/>
+                    </movingTool>
+                    <movingTool node="1>3|3|0" mouseSpeedFactor="0.3">
+                <translation transSpeed="-0.2" transAcceleration="10" transMax="1.219" transMin="0.952" startTrans="0.952" translationAxis="1" />
+                <componentJoint index="6" anchorActor="0"/>
+                    </movingTool>
+                    <movingTool node="1>3|3|1" mouseSpeedFactor="0.3">
+                <translation transSpeed="0.2" transAcceleration="10" transMax="1.219" transMin="0.952" startTrans="1.219" translationAxis="1" />
+                <componentJoint index="6" anchorActor="0"/>
+                    </movingTool>
+
+            <movingTool node="1>2|0|0|0|6">
+                <controls groupIndex="2" axis="AXIS_CRANE_ARM3" invertAxis="false" mouseSpeedFactor="0.3" iconName="CRANE_ARM1_ROTATE_X" />
+                <rotation rotSpeed="-40" rotAcceleration="50" rotMax="65" rotMin="0" startRot="0" rotationAxis="1" />
+                <componentJoint index="6" anchorActor="0"/>			
+            </movingTool>					
+
+            <!-- delayed meshes -->
+            <movingTool node="1>2|0|0|0">
+                <dependentPart node="1>2|0|0|0|1" />
+            </movingTool>
+            <movingTool node="1>2|0|0|0|0">
+                <dependentPart node="1>2|0|0|0|3" />
+            </movingTool>
+        </movingTools>	
+		
+		
+				<movingParts>
+					<movingPart node="0>0|4|1|0|0" referencePoint="1>2|6|0|1" referenceFrame="1>2|6|0|1" isActiveDirty="true" maxUpdateDistance="150">
+						<translatingPart node="0>0|4|1|0|0|0"/>
+					</movingPart>
+					<movingPart node="0>0|3|0" referencePoint="1>2|4" referenceFrame="0>0|3" limitedAxis="1" isActiveDirty="true" maxUpdateDistance="300"/>	
+					
+					<movingPart node="1>2|2" referencePoint="0>0|3|0|0" referenceFrame="0>0|3|0|0" isActiveDirty="true" maxUpdateDistance="150">
+						<translatingPart node="1>2|2|0"/>
+					</movingPart>
+					<movingPart node="1>2|3" referencePoint="0>0|3|0|1" referenceFrame="0>0|3|0|1" isActiveDirty="true" maxUpdateDistance="150">
+						<translatingPart node="1>2|3|0"/>
+					</movingPart>
+
+					<movingPart node="0>0|4|2|0" referencePoint="0>0|2|0|0" referenceFrame="0>0|2|0|0" isActiveDirty="true" maxUpdateDistance="150">
+						<translatingPart node="0>0|4|2|0|0"/>
+					</movingPart>					
+					<movingPart node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|8|0" referencePoint="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|9|0|0" referenceFrame="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|9|0|0" isActiveDirty="true" maxUpdateDistance="50">
+						<translatingPart node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|8|0|0"/>
+					</movingPart>
+			
+            <movingPart node="1>2|0|0|3|0"  referencePoint="1>2|0|0|0|0|0|0|0|0|0|0|0|3"  referenceFrame="1>2|0|0|3" maxUpdateDistance="45" isActiveDirty="true"/>	
+			<movingPart node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|0|2" referencePoint="camerafolowpoint" referenceFrame="0>0|4|0|0|0|0|0|0|0|0" isActiveDirty="true" invertZ="true"  maxUpdateDistance="50"/>			
+					
+					<!--strele-->
+					
+					<movingPart node="1>2|0|0|0|1" referencePoint="1>2|0|0|1" referenceFrame="1>2|0|0|1" isActiveDirty="true" maxUpdateDistance="150">
+						<translatingPart node="1>2|0|0|0|1|0"/>
+					</movingPart>
+
+            <movingPart node="1>2|0|0|0|3" localReferencePoint="1>2|0|0|0|3|0" referencePoint="1>2|0|0|0|0|1" referenceFrame="1>2|0|0|0|4">
+                <dependentPart node="1>2|0|0|0|3|0" />
+                <dependentPart node="1>2|0|0|0|2" />
+            </movingPart>
+            <movingPart node="1>2|0|0|0|3|0" referencePoint="1>2|0|0|0|0|1" referenceFrame="1>2|0|0|0|0|1"/>
+            <movingPart node="1>2|0|0|0|2" referencePoint="1>2|0|0|0|3|0|0" referenceFrame="1>2|0|0|0|3|0|0">
+                <translatingPart node="1>2|0|0|0|2|0" />			
+            </movingPart>					
+
+            <!-- cabin -->
+            <movingPart node="0>0|4|0|0|0|0|0|0" referenceFrame="0>0|4|0|0|0|0|1" limitedAxis="1" minRot="-10" maxRot="10" alignToWorldY="true" foldMinLimit="0" foldMaxLimit="0" isActiveDirty="true"  smoothedDirectionScale="true" directionThreshold="0.03" maxUpdateDistance="-">
+                <dependentPart node="0>0|4|0|0|0|0"/>
+                <dependentPart node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0"/>
+                <dependentPart node="0>0|4|0|0|0|0|0|0|0|0|0|0"/>
+                <dependentPart node="0>0|4|4"/>
+                <dependentPart node="0>0|4|5"/>
+            </movingPart>
+            <movingPart node="0>0|4|0|0|0|0" referenceFrame="0>0|4|6" limitedAxis="1" minRot="-6" maxRot="6" alignToWorldY="true" foldMinLimit="0" foldMaxLimit="0" smoothedDirectionScale="true" directionThreshold="0.03" maxUpdateDistance="-"/>
+            <movingPart node="0>0|4|0|0|0|0|0|0|0|0|0|0" localReferencePoint="0>0|4|0|0|0|0|0|0|0|0|0|0|0" referencePoint="0>0|4|7" referenceFrame="0>0|4|0|0|0|0|0|0|0|0|0"   maxUpdateDistance="-" limitedAxis="1">
+                <dependentPart node="0>0|4|0|0|0|0|0|0|0|0|0|0|0"/>
+            </movingPart>
+            <movingPart node="0>0|4|0|0|0|0|0|0|0|0|0|0|0" referencePoint="0>0|4|7" referenceFrame="0>0|4|7"/>
+            <movingPart node="0>0|4|4" referencePoint="0>0|4|0|0|0|0|0|0|0|0|0|0|2" referenceFrame="0>0|4|0|0|0|0|0|0|0|0|0|0|2">
+                <translatingPart node="0>0|4|4|0" />
+            </movingPart>
+            <movingPart node="0>0|4|5" referencePoint="0>0|4|0|0|0|0|0|0|0|0|0|0|3" referenceFrame="0>0|4|0|0|0|0|0|0|0|0|0|0|3">
+                <translatingPart node="0>0|4|5|0" />
+            </movingPart>
+			
+            <movingPart node="cabinGrappleAim" referencePoint="componentJointGrapple" referenceFrame="cabinGrappleAimRefFrame" isActiveDirty="true" limitedAxis="2" maxUpdateDistance="150"/>
+            <movingPart node="cabinCraneFollowingMovement" referencePoint="craneFollowingRef" referenceFrame="cabinCraneFollowingMovementRefFrame" isActiveDirty="true" limitedAxis="2" foldMinLimit="0" foldMaxLimit="0" smoothedDirectionScale="true" smoothedDirectionTime="1" maxUpdateDistance="150"/>
+			
+
+            <movingPart node="grabRightLinkageDirection" localReferencePoint="grabRightLinkageLocalRef" referencePoint="grabRightLinkageTarget" referenceFrame="grabRightLinkageAnimatedFrame" referenceDistance="0.6346727618" referenceDistanceThreshold="0" >
+                <componentJoint index="8" anchorActor="0"/>
+            </movingPart>
+            <!-- SuperGrip II -->
+            <movingPart node="grappleJoint01" referencePoint="grappleJoint01Ref" referenceFrame="grappleJoint01RefFrame" limitedAxis="1" isActiveDirty="true" maxUpdateDistance="100"/>
+            <movingPart node="grappleJoint02" referencePoint="grappleJoint02Ref" referenceFrame="grappleJoint02RefFrame" limitedAxis="1" isActiveDirty="true" maxUpdateDistance="100"/>
+            <movingPart node="grapple" referencePoint="grappleRef" referenceFrame="grappleRef" limitedAxis="3" isActiveDirty="true" maxUpdateDistance="100"/>
+
+            <movingPart node="grabLeft" referencePoint="grabLeftRef" referenceFrame="grabLeftRefFrame" limitedAxis="1" isActiveDirty="true" maxUpdateDistance="100">
+                <dependentPart node="grabRight" />
+            </movingPart>
+            <movingPart node="grabRight" referencePoint="grabRightRef" referenceFrame="grabRightRefFrame" limitedAxis="1">
+                <dependentPart node="grabHydraulic" />
+                <dependentPart node="grabRefArm" />
+            </movingPart>
+            <movingPart node="grabHydraulic" referencePoint="grabHydraulicRef" referenceFrame="grabHydraulicRef">
+                <translatingPart node="grabHydraulicPunch" />
+            </movingPart>
+            <movingPart node="grabRefArm" referencePoint="grabRefArmRef" referenceFrame="grabRefArmRef" scaleZ="true"/>				
+					
+				</movingParts>		
+				
+				<dashboards>
+					<dashboard displayType="ROT" valueType="movingTool" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|3|4|0|2|0" rotAxis="1" minRot="15" maxRot="-15" axis="AXIS_CRANE_ARM3" doInterpolation="true"/>
+					<dashboard displayType="ROT" valueType="movingTool" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|3|4|0|2|0" rotAxis="3" minRot="15" maxRot="-15" axis="AXIS_CRANE_ARM" doInterpolation="true"/>
+					<dashboard displayType="ROT" valueType="movingTool" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|3|5|0|0" rotAxis="1" minRot="-15" maxRot="15" axis="AXIS_CRANE_ARM2" doInterpolation="true"/>
+					<dashboard displayType="ROT" valueType="movingTool" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|3|5|0|0" rotAxis="3" minRot="15" maxRot="-15" axis="AXIS_CRANE_TOOL2" doInterpolation="true"/>
+				</dashboards>				
+
+       <sounds>
+            <actionSound template="sheetImp02"       pitchScale="0.8" volumeScale="0.8" linkNode="componentJointGrabLeft"         actionNames="TOOL_MOVE_END_POS_LIMIT"                         nodes="componentJointGrabLeft" />
+            <actionSound template="clackVar6"        pitchScale="0.6" volumeScale="0.8" linkNode="componentJointGrabLeft"         actionNames="TOOL_MOVE_END_POS_LIMIT"                         nodes="componentJointGrabLeft" />
+            <actionSound template="foldStartMed02"   pitchScale="0.5" volumeScale="1.3" linkNode="componentJointGrabLeft"         actionNames="TOOL_MOVE_END_NEG_LIMIT"                         nodes="componentJointGrabLeft" />
+			<actionSound template="hydraulicOpen02"  pitchScale="1.0" volumeScale="2.6" linkNode="componentJointGrappleActor1Rot" actionNames="TOOL_MOVE_POS TOOL_MOVE_NEG"                     nodes="componentJointGrabLeft" fadeIn="0.1" fadeOut="0.1" />
+            <actionSound template="hydraulicOpen05"  pitchScale="2.4" volumeScale="2.6" linkNode="componentJointGrappleActor1Rot" actionNames="TOOL_MOVE_POS TOOL_MOVE_NEG"                     nodes="componentJointGrappleActor1Rot" fadeIn="0.1" fadeOut="0.1" />
+
+            <actionSound template="hydraulicOpen02"       pitchScale="1.6" volumeScale="1.8" linkNode="1>2|1|0"          actionNames="TOOL_MOVE_POS TOOL_MOVE_NEG"                     nodes="1>2|1|0"          fadeIn="0.1" fadeOut="0.1" />
+            <actionSound template="hydraulicClose01"      pitchScale="1.1" volumeScale="1.5" linkNode="1>2|1|0|0"        actionNames="TOOL_MOVE_POS TOOL_MOVE_NEG"                     nodes="1>2|1|0|0"        fadeIn="0.1" fadeOut="0.1" />
+            <actionSound template="hydraulicClose01"      pitchScale="0.8" volumeScale="2.5" linkNode="1>2|1|0|0|0"        actionNames="TOOL_MOVE_POS TOOL_MOVE_NEG"                     nodes="1>2|1|0|0|0"        fadeIn="0.1" fadeOut="0.1" />
+            <actionSound template="hydraulicClose01"      pitchScale="0.5" volumeScale="3"   linkNode="1>2|1"          actionNames="TOOL_MOVE_POS TOOL_MOVE_NEG"                     nodes="1>2|1"          fadeIn="0.1" fadeOut="0.1" />
+            <actionSound template="clackVar6"             pitchScale="0.7" volumeScale="1.3" linkNode="1>2|1|0|0"        actionNames="TOOL_MOVE_END_POS_LIMIT TOOL_MOVE_END_NEG_LIMIT" nodes="1>2|1|0|0" />
+            <actionSound template="cylinderPunch"         pitchScale="1"   volumeScale="0.3" linkNode="1>2|1|0|0"        actionNames="TOOL_MOVE_END_POS_LIMIT TOOL_MOVE_END_NEG_LIMIT" nodes="1>2|1|0|0" />
+            <actionSound template="sheetImp02"            pitchScale="1.5" volumeScale="1.4" linkNode="1>2|1|0"          actionNames="TOOL_MOVE_END_POS_LIMIT TOOL_MOVE_END_NEG_LIMIT" nodes="1>2|1|0" />
+            <actionSound template="sheetImp02"            pitchScale="1.5" volumeScale="0.7" linkNode="1>2|1|0|0|0"        actionNames="TOOL_MOVE_END_POS_LIMIT TOOL_MOVE_END_NEG_LIMIT" nodes="1>2|1|0|0|0" />
+            <actionSound template="clackVar6"             pitchScale="0.7" volumeScale="0.9" linkNode="1>2|1|0|0|0"        actionNames="TOOL_MOVE_END_POS_LIMIT TOOL_MOVE_END_NEG_LIMIT" nodes="1>2|1|0|0|0" />
+            <actionSound template="clackVar6"             pitchScale="0.7" volumeScale="1.3" linkNode="1>2|1"          actionNames="TOOL_MOVE_END_POS_LIMIT TOOL_MOVE_END_NEG_LIMIT" nodes="1>2|1" />
+            <actionSound template="thudVar1"              pitchScale="0.7" volumeScale="1.3" linkNode="1>2|1"          actionNames="TOOL_MOVE_END_POS_LIMIT TOOL_MOVE_END_NEG_LIMIT" nodes="1>2|1" />			
+        </sounds>				
+    </cylindered>  				
+
+    <suspensions>
+        <suspension node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|3"              weight="150" minTranslation="-0.05 -0.15 0.0" maxTranslation="0.05 0.15 0.0" suspensionParametersX="20 4" suspensionParametersY="5 1" suspensionParametersZ="20 4" />
+        <suspension useCharacterTorso="true" weight="90" minRotation="0 -5 -5" maxRotation="0 5 5" suspensionParametersY="7 1" suspensionParametersZ="7 1" />
+    </suspensions>
+
+    <dashboard>
+        <groups>
+            <group name="ELECTRONICS_STARTING_SHORT" electronicsStarting="true"/>
+            <group name="ELECTRONICS_STARTING" electronicsStarting="true" electronicsStartingTime="4"/>
+            <group name="ELECTRONICS_ACTIVE" electronicsStarting="true" electronicsRunning="true"/>
+            <group name="ELECTRONICS_RUNNING" electronicsStarting="false" electronicsRunning="true"/>
+            <group name="ELECTRONICS_RUNNING_DASHBOARD" electronicsStarting="false" electronicsRunning="true" electronicsStartingTime="4"/>
+            <group name="LIGHT_ENABLED" lightTypes="0"/>
+            <group name="MOTOR_STARTING" electronicsStarting="true"/>
+            <group name="MOTOR_ACTIVE" electronicsStarting="true" electronicsRunning="true"/>
+            <group name="MOTOR_RUNNING" electronicsRunning="true"/>						
+        </groups>
+
+        <default>
+            <dashboard displayType="VISIBILITY" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|5|3|0" groups="ELECTRONICS_RUNNING_DASHBOARD"/>
+            <dashboard displayType="VISIBILITY" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|5|3" groups="ELECTRONICS_RUNNING"/>
+            <dashboard displayType="EMITTER" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|5|3" intensity="0.15" groups="ELECTRONICS_RUNNING"/>
+            <dashboard displayType="EMITTER" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|5|4" intensity="0.15" groups="ELECTRONICS_ACTIVE"/>
+            <dashboard displayType="EMITTER" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|3|5|0|9" emitColor="GREEN" intensity="0.2" groups="ELECTRONICS_ACTIVE"/>
+            <dashboard displayType="EMITTER" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|5|3|0|16" intensity="0.15" groups="ELECTRONICS_RUNNING"/>
+
+            <dashboard displayType="VISIBILITY" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|5|1" groups="ELECTRONICS_STARTING"/>
+            <dashboard displayType="EMITTER" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|5|1" intensity="0.15" groups="ELECTRONICS_STARTING"/>
+
+            <dashboard displayType="VISIBILITY" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|5|2" groups="ELECTRONICS_STARTING_SHORT"/>
+            <dashboard displayType="EMITTER" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|5|2" intensity="0.15" groups="ELECTRONICS_STARTING_SHORT"/>
+            <dashboard displayType="EMITTER" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|3|5|0|4" emitColor="GREEN" intensity="0.2" groups="ELECTRONICS_RUNNING" inactiveGroups="LIGHT_ENABLED" inactiveIntensity="0.2" inactiveColor="WHITE"/>
+			
+        </default>
+    </dashboard>
+
+    <ai>
+        <agent frontWheelNodes="frontLeftBoggieFrontWheel frontRightBoggieFrontWheel"/>
+    </ai>
+
+    <tensionBelts>
+        <tensionBeltsConfigurations>
+            <tensionBeltsConfiguration>
+                <tensionBelts linkNode="1>9" rootNode="1210G_main_component2" jointNode="1210G_main_component2" width="0.075" maxEdgeLength="0.1" geometryBias="0.01" ratchetPosition="0.2" defaultOffset="-0.60" defaultOffsetSide="0.1" defaultHeight="3" interactionRadius="1.75" totalInteractionRadius="3.5" activationTrigger="beltActivationTrigger">
+                    <tensionBelt startNode="1>9|0" endNode="1>9|0|0" offsetLeft="0.85"/>
+                    <tensionBelt startNode="1>9|1" endNode="1>9|1|0" offsetRight="0.85"/>
+
+                    <sounds>
+                        <addBelt    template="beltOpen"  linkNode="1>9|0"/>
+                        <removeBelt template="beltClose" linkNode="1>9|0"/>
+                    </sounds>
+                </tensionBelts>
+            </tensionBeltsConfiguration>
+        </tensionBeltsConfigurations>
+    </tensionBelts>
+
+    <foliageBending>
+        <bendingNode minX="-0.3" maxX="0.3" minZ="1.5" maxZ="5.3" yOffset="0.65"/>
+        <bendingNode minX="-1.5" maxX="1.5" minZ="1.9" maxZ="4.8" yOffset="0.5"/>		
+        <bendingNode minX="-0.3" maxX="0.3" minZ="-3.5" maxZ="1" yOffset="0.65" node="1210G_main_component2"/>
+        <bendingNode minX="-1.5" maxX="1.5" minZ="-3.35" maxZ="-0.5" yOffset="0.5" node="1210G_main_component2"/>		
+        <bendingNode minX="-0.3" maxX="0.3" minZ="-0.2" maxZ="0.2" yOffset="-0.35" node="grapple_component7"/>		
+    </foliageBending>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="4" fieldMultiplier="2"/>
+
+	<interactiveControl>
+        <interactiveControlConfigurations title="$l10n_actionIC_Animation">
+            <interactiveControlConfiguration name="$l10n_actionIC_IC">
+				<interactiveControls>
+					<outdoorTrigger node="0>0|10"/> 										
+					<interactiveControl posText="$l10n_actionIC_Stairs" negText="$l10n_actionIC_Stairs" >
+						<clickPoint node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|3|5|1" size="0.03" type="INDOOR" />						
+						<animation name="laiptai" speedScale="1.0" initTime="0.0" />
+						<soundModifier indoorFactor="2.5" delayedSoundAnimationTime="0.1"/>
+                        <dependingMovingTool isInactive="true" node="0>0|6"/>
+					</interactiveControl>
+					
+					<interactiveControl posText="$l10n_actionIC_Beacon" negText="$l10n_actionIC_Beacon" >
+						<clickPoint node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|14" size="0.08" type="OUTDOOR" />			
+						<animation name="Beacon" speedScale="1.0" initTime="0.0" />
+						<soundModifier indoorFactor="2.5" delayedSoundAnimationTime="0.1"/>
+                        <dependingMovingTool isInactive="true" node="0>0|6"/>
+					</interactiveControl>
+
+					<interactiveControl posText="$l10n_actionIC_ArmrestS" negText="$l10n_actionIC_ArmrestS" >
+						<clickPoint node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|3|4|0|0" size="0.03" type="INDOOR" />			
+						<animation name="atramaside" speedScale="1.0" initTime="0.0" />
+						<soundModifier indoorFactor="2.5" delayedSoundAnimationTime="0.1"/>
+                        <dependingMovingTool isInactive="true" node="0>0|6"/>
+					</interactiveControl>
+					
+					<interactiveControl posText="$l10n_actionIC_Armrest" negText="$l10n_actionIC_Armrest" >
+						<clickPoint node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|3|4|0|1" size="0.03" type="INDOOR" />
+						<clickPoint node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|3|4|0|5" size="0.03" type="OUTDOOR" />							
+						<animation name="atramaup" speedScale="1.0" initTime="0.0" />
+						<soundModifier indoorFactor="2.5" delayedSoundAnimationTime="0.1"/>
+                        <dependingMovingTool isInactive="true" node="0>0|6"/>
+					</interactiveControl>					
+					
+					<interactiveControl posText="$l10n_actionIC_Gate" negText="$l10n_actionIC_Gate" >
+						<clickPoint node="1>3|1|2" size="0.05" type="OUTDOOR" />
+						<clickPoint node="1>3|1|3" size="0.05" type="OUTDOOR" />						
+						<animation name="stoike1" speedScale="1.0" initTime="0.0" />
+						<soundModifier indoorFactor="2.5" delayedSoundAnimationTime="0.1"/>
+                        <dependingMovingTool isInactive="true" node="0>0|6"/>
+					</interactiveControl>
+					<interactiveControl posText="$l10n_actionIC_Gatefront" negText="$l10n_actionIC_Gateback" >
+						<clickPoint node="1>3|2|2" size="0.05" type="OUTDOOR" />
+						<clickPoint node="1>3|2|3" size="0.05" type="OUTDOOR" />						
+						<animation name="stoike2" speedScale="1.0" initTime="0.0" />
+						<soundModifier indoorFactor="2.5" delayedSoundAnimationTime="0.1"/>
+                        <dependingMovingTool isInactive="true" node="0>0|6"/>
+					</interactiveControl>
+
+					<interactiveControl posText="$l10n_actionIC_Gatefront" negText="$l10n_actionIC_Gateback" >
+						<clickPoint node="1>3|3|2" size="0.05" type="OUTDOOR" />
+						<clickPoint node="1>3|3|3" size="0.05" type="OUTDOOR" />						
+						<animation name="stoike3" speedScale="1.0" initTime="0.0" />
+						<soundModifier indoorFactor="2.5" delayedSoundAnimationTime="0.1"/>
+                        <dependingMovingTool isInactive="true" node="0>0|6"/>
+					</interactiveControl>
+
+					<interactiveControl posText="$l10n_actionIC_extension" negText="$l10n_actionIC_extension" >
+						<clickPoint node="1>3|0|0|2" size="0.05" type="OUTDOOR" />
+						<clickPoint node="1>3|0|1|0|2" size="0.05" type="OUTDOOR" />
+						<clickPoint node="1>3|3|0|2" size="0.05" type="OUTDOOR" />
+						<clickPoint node="1>3|3|1|0|2" size="0.05" type="OUTDOOR" />							
+						<animation name="stoikesA" speedScale="1.0" initTime="0.0" />
+						<soundModifier indoorFactor="2.5" delayedSoundAnimationTime="0.1"/>
+                        <dependingMovingTool isInactive="true" node="0>0|6"/>
+					</interactiveControl>					
+
+                    <interactiveControl posText="$l10n_actionIC_stopMotor" negText="$l10n_actionIC_startMotor" >
+                        <clickPoint node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|7|2|1" size="0.05" type="INDOOR" iconType="IGNITIONKEY"/>
+                        <function name="MOTOR_START_STOPP" />
+                    </interactiveControl>					
+					
+					<interactiveControl posText="$l10n_actionIC_closeDoor" negText="$l10n_actionIC_openDoor" >
+						<clickPoint node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|9|0|14" size="0.05" type="INDOOR" iconType="CROSS"/>
+						<clickPoint node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|9|0|13" size="0.05" type="OUTDOOR" iconType="CROSS"/>
+						<clickPoint node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|9|0|15" size="0.05" type="OUTDOOR" iconType="CROSS"/>							
+						<animation name="Durys" speedScale="1.0" initTime="0.0" />
+						<soundModifier indoorFactor="2.0" delayedSoundAnimationTime="0.1"/>
+                        <dependingMovingTool isInactive="true" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|8|0"/>					
+					</interactiveControl>
+
+            <interactiveControl posText="$l10n_actionIC_workLightsBackOff" negText="$l10n_actionIC_workLightsBackOn" >
+                <clickPoint node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|3|5|6" size="0.02" alignToCamera="false" blinkSpeedScale="0.4" type="INDOOR" iconType="LIGHT"/>
+                <function name="LIGHTS_WORKBACK_TOGGLE" />
+            </interactiveControl>
+
+            <interactiveControl posText="$l10n_actionIC_workLightsFrontOff" negText="$l10n_actionIC_workLightsFrontOn" >
+                <clickPoint node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|3|5|5" size="0.02" alignToCamera="false" blinkSpeedScale="0.4" type="INDOOR" iconType="LIGHT"/>
+                <function name="LIGHTS_WORKFRONT_TOGGLE" />
+            </interactiveControl>
+
+                    <interactiveControl posText="$l10n_actionIC_lightsOff" negText="$l10n_actionIC_lightsOn" >
+                <clickPoint node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|3|5|4" size="0.03" alignToCamera="false" blinkSpeedScale="0.4" type="INDOOR" iconType="LIGHT"/>
+                <function name="LIGHTS_TOGGLE" />
+            </interactiveControl>			
+
+                    <interactiveControl posText="$l10n_actionIC_radioOff" negText="$l10n_actionIC_radioOn" >
+                        <clickPoint node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|15" size="0.04" type="INDOOR" iconType="CROSS" alignToCamera="false"/>
+                        <function name="RADIO_TOGGLE" />
+                    </interactiveControl>
+                    <interactiveControl posText="$l10n_actionIC_radionext" negText="$l10n_actionIC_radionext">
+                        <clickPoint node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|16" size="0.02" blinkSpeedScale="0.4" type="INDOOR" alignToCamera="false"/>
+                        <function name="RADIO_CHANNEL_NEXT"/>
+                    </interactiveControl>
+                    <interactiveControl posText="$l10n_actionIC_radiolast" negText="$l10n_actionIC_radiolast">
+                        <clickPoint node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|17" size="0.02" blinkSpeedScale="0.4" type="INDOOR" alignToCamera="false"/>
+                        <function name="RADIO_CHANNEL_PREVIOUS"/>
+                    </interactiveControl>					
+				</interactiveControls>
+			</interactiveControlConfiguration>
+		  </interactiveControlConfigurations>
+	</interactiveControl>
+	
+    <designConfigurations title="$l10n_configuration_front_guard" isYesNoOption="true">
+        <designConfiguration name="$l10n_configuration_valueNo" price="0" isDefault="true">
+            <objectChange node="0>0|5|3" visibilityActive="false"/>
+        </designConfiguration>
+        <designConfiguration name="$l10n_configuration_valueYes" price="2500" >
+            <objectChange node="0>0|5|3" visibilityActive="true"/>
+        </designConfiguration>
+    </designConfigurations>	
+
+    <design4Configurations title="$l10n_configuration_window_guard" isYesNoOption="true">
+        <design4Configuration name="$l10n_configuration_valueNo" price="0" isDefault="true">
+            <objectChange node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|18|0" visibilityActive="false"/>
+        </design4Configuration>
+        <design4Configuration name="$l10n_configuration_valueYes" price="1500" >
+            <objectChange node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|18|0" visibilityActive="true"/>
+        </design4Configuration>
+    </design4Configurations>	
+
+	<design6Configurations title="$l10n_InteriorDeco" isYesNoOption="true">
+		<design6Configuration name="$l10n_ui_no" price="0" >
+		</design6Configuration>
+        <design6Configuration name="$l10n_ui_yes" price="150" >
+			<objectChange node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|7|6" visibilityActive="true" visibilityInactive="false"/>
+		</design6Configuration>
+    </design6Configurations>	
+	
+	<design3Configurations title="$l10n_configuration_windows" >
+        <design3Configuration name="$l10n_configuration_valueDefault" price="0"/>
+        <design3Configuration name="%s %s" params="$l10n_configuration_valueTinted|1" price="500">
+            <material materialSlotName="Window_FW">
+                <textures diffuse="$data/shared/windowLightDark_diffuse.dds"/>
+            </material>
+        </design3Configuration>
+		<design3Configuration name="%s %s" params="$l10n_configuration_valueTinted|2" price="500">
+            <material materialSlotName="Window_FW">
+                <textures diffuse="$data/shared/windowDark_diffuse.dds"/>
+            </material>
+        </design3Configuration>
+		<design3Configuration name="%s %s" params="$l10n_configuration_valueTinted|3" price="500">
+            <material materialSlotName="Window_FW">
+                <textures diffuse="$data/shared/windowExtraDark_diffuse.dds"/>
+            </material>
+        </design3Configuration>		
+    </design3Configurations>
+	
+    <i3dMappings>
+        <i3dMapping id="1210G_main_component1" node="0>" />
+        <i3dMapping id="1210G_main_component2" node="1>" />			
+        <i3dMapping id="frontLeftBoggieJoint" node="0>0|0|0" />
+        <i3dMapping id="frontRightBoggieJoint" node="0>0|0|1" />
+        <i3dMapping id="backLeftBoggieJoint" node="1>0|0" />
+        <i3dMapping id="backRightBoggieJoint" node="1>0|1" />
+        <i3dMapping id="frontBackJoint" node="0>0|0|2" />
+		
+        <i3dMapping id="beltActivationTrigger" node="1>9|2" />		
+
+        <i3dMapping id="frontLeftBoggieFrontWheel" node="2>0"/>
+        <i3dMapping id="frontLeftBoggieBackWheel" node="2>1"/>
+        <i3dMapping id="frontRightBoggieFrontWheel" node="3>0"/>
+        <i3dMapping id="frontRightBoggieBackWheel" node="3>1"/>
+
+		<i3dMapping id="backLeftBoggieFrontWheel" node="4>0"/>
+        <i3dMapping id="backLeftBoggieBackWheel" node="4>1"/>
+        <i3dMapping id="backRightBoggieFrontWheel" node="5>0"/>
+        <i3dMapping id="backRightBoggieBackWheel" node="5>1"/>	
+                    <!-- Grebtuvas -->
+        <i3dMapping id="componentJointGrapple" node="1>2|1|0|0|0|0|0" />
+        <i3dMapping id="componentJointGrappleZRot" node="1>2|1|0|0|0|0|0|0" />
+        <i3dMapping id="grappleJoint01RefFrame" node="1>2|0|0|4" />		
+        <i3dMapping id="grappleJoint01" node="1>2|0|0|0|0|0|0|0" />
+        <i3dMapping id="grappleJoint02RefFrame" node="1>2|0|0|0|0|0|0|0|0|0" />
+        <i3dMapping id="grappleJoint02" node="1>2|0|0|0|0|0|0|0|0|0|0" />				
+        <i3dMapping id="grapple" node="1>2|0|0|0|0|0|0|0|0|0|0|0" />
+        <i3dMapping id="grabLeftRefFrame" node="1>2|0|0|0|0|0|0|0|0|0|0|0|0" />
+        <i3dMapping id="grabLeft" node="1>2|0|0|0|0|0|0|0|0|0|0|0|0|0" />
+        <i3dMapping id="grabHydraulic" node="1>2|0|0|0|0|0|0|0|0|0|0|0|0|0|0" />
+        <i3dMapping id="grabHydraulicPunch" node="1>2|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0" />
+        <i3dMapping id="grabRefArm" node="1>2|0|0|0|0|0|0|0|0|0|0|0|0|0|1" />
+        <i3dMapping id="grabRightRefFrame" node="1>2|0|0|0|0|0|0|0|0|0|0|0|1" />
+        <i3dMapping id="grabRight" node="1>2|0|0|0|0|0|0|0|0|0|0|0|1|0" />
+        <i3dMapping id="grabHydraulicRef" node="1>2|0|0|0|0|0|0|0|0|0|0|0|1|0|1" />
+        <i3dMapping id="grabRefArmRef" node="1>2|0|0|0|0|0|0|0|0|0|0|0|1|0|0" />
+		
+        <i3dMapping id="grapple_component7" node="6>" />
+        <i3dMapping id="componentJointGrappleActor1Rot" node="6>0" />
+        <i3dMapping id="componentJointGrappleActor1" node="6>0|0" />
+        <i3dMapping id="componentJointGrabLeft" node="6>1" />
+        <i3dMapping id="componentJointGrabRight" node="6>2|0|1" />
+        <i3dMapping id="logGrabTrigger" node="6>3" />
+        <i3dMapping id="grappleJoint01Ref" node="6>4" />
+        <i3dMapping id="grappleJoint02Ref" node="6>5" />
+        <i3dMapping id="grappleRef" node="6>6" />
+        <i3dMapping id="treeDetectionNode01" node="6>7" />
+        <i3dMapping id="grabLeftRef" node="7>0" />
+        <i3dMapping id="grabRightRef" node="8>0" />		
+		
+        <i3dMapping id="cabinCraneFollowingMovement" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0" />
+        <i3dMapping id="cabinCraneFollowingMovementRefFrame" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|1" />
+        <i3dMapping id="armXRotDependetMovingtool" node="1>10" />
+        <i3dMapping id="craneFollowingRef" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|2|0|0" />
+        <i3dMapping id="grabRightLinkageTarget" node="6>1|0" />
+        <i3dMapping id="grabRightLinkageDirection" node="6>2|0" />
+        <i3dMapping id="grabRightLinkageLocalRef" node="6>2|0|0" />
+        <i3dMapping id="grabRightLinkageAnimatedFrame" node="6>2|1|0" />
+        <i3dMapping id="grabRightLegacySaveSlot" node="6>8" />
+        <i3dMapping id="cabinGrappleAim" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|2|0" />
+        <i3dMapping id="cabinGrappleAimRefFrame" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|2|1" />
+		
+        <i3dMapping id="folowcamera" node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|0|2|0" />
+        <i3dMapping id="camerafolowpoint" node="1>2|0|0|0|0|0|0|0|0|0|0|0|4" />		
+    </i3dMappings>
+</vehicle>

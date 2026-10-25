@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<modDesc descVersion="113">
+    <author>Rimvis</author>
+	
+    <version>1.0.0.1</version>
+	
+    <iconFilename>icon_1210G.dds</iconFilename>
+	
+	<title>
+        <en>John Deere 1210G</en>
+    </title>
+	
+    <storeItems>
+        <storeItem xmlFilename="1210G.xml"/>		
+    </storeItems>	
+	
+    <description>
+<en>
+<![CDATA[ This is the top-of-the-line John Deere 1210G log loader, designed for the most demanding forestry challenges. This model is equipped with IBC (Intelligent Boom Control) and a CF7 boom. Together with the professional Hultdins SuperGrip II 360S grapple, this combination ensures maximum loading speed and allows you to load logs with perfect precision.
+
+Shop Category: Forwarders
+Price: 350.000 $
+Engine power: 209 HP
+Max Speed: 23 km/h or 15 myles
+
+Shop Configurations:
+Tyres: Nokian,BKT,TRELLEBORG and OLOFSFORS tracks.
+Front guard
+Windows
+Interior deco
+
+Functions with mouse and keyboard:
+Loadspace: expansion and contraction,raising and lowering.
+Cabin can rotate manualy.
+Can raising and lowering crane light.
+Crane
+
+The "Z" key can be used to enable or disable cab tilting, as well as to activate the cab tracking function when the cab is facing rearward.
+
+Interactive controls:
+open/close doors
+up/down stairs
+start/stop engine
+from outside you can change gate location 
+
+Recommended mods:
+Interactive Control
+Mercedes benz DLC
+
+I would like to thank HR Forst und Fahrzeugbau for the parts, some of which I can install in my forwarder
+
+Changelog 1.0.0.1:
+Added: major parts of the frame material (steel step plate on the front steps and anti-slip strips on the back of the hood near the cab).
+Added: beacon, (blinker when you buy new forwarder beacon be in door pocket ,when you want change blinker location you need push IC button above cab (outside)).
+Added IC: seat armrest contols now can left armrest up and down ,also left and right move to sides.
+Added IC: radio controls.
+Added IC: Light control.
+Added IC: gate extension point ,now hee need pull up and down manualy.
+Added IC: now can last gate pushing forward and backwards.
+Fixed: Cabin ,now cabin folowing crane propely.
+Fixed: load space now trees not sliping out of load space.
+Fixed: graple now he grabing trees better.
+Changed crane light control button.
+Added: Nokian Tir2 tires
+Added: BKT Tr678 tires
+Added: Inside Work following camera
+Added: front window grill 
+
+]]>
+</en>
+<de>
+<![CDATA[Dies ist der John Deere 1210G Holzverlader der Spitzenklasse, entwickelt für härteste forstwirtschaftliche Herausforderungen. Dieses Modell ist mit IBC (Intelligent Boom Control) und einem CF7-Ausleger ausgestattet. Zusammen mit dem professionellen Hultdins SuperGrip II 360S Greifer gewährleistet diese Kombination maximale Ladegeschwindigkeit und ermöglicht präzises Verladen von Stämmen.
+
+Shop-Kategorie: Holztransport
+Preis: 350.000€
+Motorleistung: 209 PS
+Höchstgeschwindigkeit: 23 km/h oder 15 Meilen pro Stunde
+
+Ausstattung:
+Reifen: Nokian, BKT, Trelleborg und Olofsfors Tracks.
+Frontschutzbügel
+Fenster
+Innenausstattung
+
+Funktionen mit Maus und Tastatur:
+Ladefläche: Vergrößern und Verkleinern, Heben und Senken.
+Kabine manuell drehbar.
+Kranbeleuchtung heben und senken.
+Kran
+
+Mit der Taste „Z“ kann die Kabinenneigung aktiviert oder deaktiviert sowie die Kabinenverfolgungsfunktion aktiviert werden, wenn die Kabine nach hinten gerichtet ist.
+
+Interaktive Steuerung:
+Türen öffnen/schließen
+Treppen hoch/runter
+Motor starten/stoppen
+Von außen kann die Position des Tors geändert werden.
+
+Empfohlene Mods:
+Interaktive Steuerung
+Mercedes-Benz-DLC
+
+Ich möchte mich bei HR Forst und Fahrzeugbau für die Teile bedanken, von denen ich einige in meinen Forwarder einbauen kann.
+
+Änderungsprotokoll 1.0.0.1:
+Neu: Wesentliche Rahmenteile (Stahltrittplatte an den vorderen Trittstufen und Antirutschstreifen an der Rückseite der Motorhaube in der Nähe des Fahrerhauses).
+Neu: Rundumleuchte (Blinker befindet sich beim Kauf eines neuen Forwarders in der Türablage; zum Ändern der Blinkerposition muss die IC-Taste über dem Fahrerhaus (außen) gedrückt werden).
+IC hinzugefügt: Die Armlehnensteuerung ermöglicht nun das Heben und Senken der linken Armlehne sowie deren seitliche Bewegung.
+IC hinzugefügt: Funksteuerung.
+IC hinzugefügt: Lichtsteuerung.
+IC hinzugefügt: Der Torausfahrpunkt muss nun manuell hoch- und heruntergezogen werden.
+IC hinzugefügt: Das letzte Tor kann nun vor- und zurückgeschoben werden.
+Behoben: Das Fahrerhaus folgt nun der Kranpropellerwelle.
+Behoben: Bäume rutschen nicht mehr aus dem Laderaum.
+Behoben: Der Greifer greift Bäume nun besser.
+Taste zur Steuerung der Kranbeleuchtung geändert.
+Hinzugefügt: Nokian Tir2 Reifen
+Hinzugefügt: BKT Tr 678-Reifen
+Hinzugefügt: Kamera folgt im Inneren der Arbeit
+Hinzugefügt: Frontscheibengitter
+]]>
+</de>
+    </description>	
+	
+	<multiplayer supported="true"/>	
+
+    <l10n>		
+		<!-- Interactive Control -->
+        <text name="actionIC_Animation">        
+		    <en>Animation</en>
+		</text>
+        <text name="actionIC_IC">        
+		    <en>Interactive control</en>
+		</text>
+        <text name="actionIC_MC">        
+		    <en>Mouse control</en>
+		</text>
+
+		<text name="InteriorDeco">			<en>Interior Deco</en>				<de>Interieur Deko</de>				</text>	
+
+		<text name="foldCab">		<en>Cab Tilt ON</en>			<de>Kabinenkippung EIN</de>			</text>
+		<text name="unfoldCab">		<en>Cab Tilt OFF</en>			<de>Kabinenneigung AUS</de>			</text>
+		<text name="Warning_Tilt">		<en>Tilt Warning</en>			<de>Neigungswarnung</de>			</text>
+		<text name="configuration_front_guard">		<en>front guard</en>			<de>Frontschutz</de>			</text>
+		<text name="configuration_window_guard">		<en>front window guard</en>			<de>Frontscheibenschutz</de>			</text>		
+		
+		<text name="actionIC_Gate">		<en>Gate Slide</en>			<de>Schiebetor</de>			</text>	
+		<text name="actionIC_extension">		<en>Gate extension</en>			<de>Torverlängerung</de>			</text>
+		<text name="actionIC_Armrest">		<en>Armrest up/down</en>			<de>Armlehne hoch/runter</de>			</text>
+		<text name="actionIC_ArmrestS">		<en>Armrest Side</en>			<de>Armlehnenseite</de>			</text>		
+		<text name="actionIC_Beacon">		<en>Beacon Location</en>			<de>Beacon Location</de>			</text>
+		<text name="actionIC_Stairs">		<en>Stairs up/down</en>			<de>Treppe hinauf/hinunter</de>			</text>	
+	</l10n>
+
+	<storeItems>
+		<storeItem xmlFilename="1210G.xml"/>
+    </storeItems>	
+
+</modDesc>

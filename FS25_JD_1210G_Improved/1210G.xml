@@ -378,7 +378,6 @@
         </sounds>
     </articulatedAxis>
 
-	<powerConsumer ptoRpm="350" neededMinPtoPower="5" neededMaxPtoPower="40" useTurnOnState="false"/>
 
     <speedRotatingParts>
         <speedRotatingPart nodes="1>2|6|0 0>0|4|1|0" wheelIndex="1" wheelScale="5"/>
@@ -395,7 +394,6 @@
                 <raycastNode node="0>0|6|2"/>
             </camera>		
             <camera node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|0|0" rotatable="true" limit="true" rotMinX="-1.1" rotMaxX="0.4" transMin="0" transMax="0" isInside="true" useMirror="true" shadowFocusBox="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|0|1" useDefaultPositionSmoothing="false" suspensionNodeIndex="1" />
-            <camera node="folowcamera" rotatable="false" useWorldXZRotation="false" isInside="true" allowHeadTracking="true" useMirror="true" shadowFocusBox="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|0|1" />				
             <camera node="1>2|0|0|3|0|0" 		rotatable="false" 	useWorldXZRotation="false" allowHeadTracking="true"/>					
         </cameras>
 
@@ -989,7 +987,6 @@
 					</movingPart>
 			
             <movingPart node="1>2|0|0|3|0"  referencePoint="1>2|0|0|0|0|0|0|0|0|0|0|0|3"  referenceFrame="1>2|0|0|3" maxUpdateDistance="45" isActiveDirty="true"/>	
-			<movingPart node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|0|2" referencePoint="camerafolowpoint" referenceFrame="0>0|4|0|0|0|0|0|0|0|0" isActiveDirty="true" invertZ="true"  maxUpdateDistance="50"/>			
 					
 					<!--strele-->
 					
@@ -1080,7 +1077,7 @@
         </sounds>				
     </cylindered>
 
-    <jdEasyArmControl slewNode="1>2|1" boomNode="1>2|1|0" jibNode="1>2|1|0|0" telescopeNode="1>2|1|0|0|0" telescope2Node="1>2|1|0|0|0|0" tipNode="componentJointGrapple" speed="1.4" invertY="false" invertZ="false"/>  				
+    <jdEasyArmControl slewNode="1>2|1" boomNode="1>2|1|0" jibNode="1>2|1|0|0" telescopeNode="1>2|1|0|0|0" telescope2Node="1>2|1|0|0|0|0" tipNode="componentJointGrapple" speed="1.3" invertY="false" invertZ="false"/>  				
 
     <suspensions>
         <suspension node="0>0|4|0|0|0|0|0|0|0|0|0|0|1|0|0|3"              weight="150" minTranslation="-0.05 -0.15 0.0" maxTranslation="0.05 0.15 0.0" suspensionParametersX="20 4" suspensionParametersY="5 1" suspensionParametersZ="20 4" />

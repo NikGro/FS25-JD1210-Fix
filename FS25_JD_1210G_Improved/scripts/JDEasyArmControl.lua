@@ -3,7 +3,9 @@ JDEasyArmControl - easy crane control for cranes whose model does not fit the ba
 (the base game requires the second boom joint to lie exactly on the axis of the first one).
 
 With the game setting "easy crane control" on, the two boom axes move the grapple straight
-up/down and in/out. Main boom, knuckle boom and telescope are solved together every frame
+up/down and in/out, with the same stick layout as the base game Rottne F20D: the main boom
+stick moves in/out (the direction that lowers the boom = out), the knuckle stick moves
+up/down (the direction that opens the knuckle = up). Main boom, knuckle boom and telescope are solved together every frame
 (damped least squares on the joint velocities), the slewing stays manual.
 
 Author: NikGro (private edit of the JD 1210G by Rimvis)
@@ -30,7 +32,7 @@ function JDEasyArmControl.initSpecialization()
     schema:register(XMLValueType.NODE_INDEX, key .. "#telescopeNode", "Telescope stage 1 moving tool node")
     schema:register(XMLValueType.NODE_INDEX, key .. "#telescope2Node", "Telescope stage 2 moving tool node (optional)")
     schema:register(XMLValueType.NODE_INDEX, key .. "#tipNode", "Crane tip (grapple joint)")
-    schema:register(XMLValueType.FLOAT, key .. "#speed", "Tip speed at full input in m/s", 1.4)
+    schema:register(XMLValueType.FLOAT, key .. "#speed", "Tip speed at full input in m/s", 1.3)
     schema:register(XMLValueType.BOOL, key .. "#invertY", "Invert up/down", false)
     schema:register(XMLValueType.BOOL, key .. "#invertZ", "Invert in/out", false)
     schema:setXMLSpecializationType()
@@ -92,7 +94,7 @@ function JDEasyArmControl.loadSetup(self, spec)
     spec.jib = tool("jibNode", true)
     spec.tel1 = tool("telescopeNode", false)
     spec.tel2 = tool("telescope2Node", false)
-    spec.speed = xmlFile:getValue(key .. "#speed", 1.4) / 1000 -- m/ms
+    spec.speed = xmlFile:getValue(key .. "#speed", 1.3) / 1000 -- m/ms
     spec.invertY = xmlFile:getValue(key .. "#invertY", false)
     spec.invertZ = xmlFile:getValue(key .. "#invertZ", false)
 
@@ -108,9 +110,8 @@ function JDEasyArmControl.loadSetup(self, spec)
     spec.stickY = JDEasyArmControl.getStickSigns(self, spec)
 end
 
--- Direction of the sticks: pushing the boom stick the way that raises the main boom raises the
--- grapple, pushing the knuckle stick the way that opens the knuckle moves the grapple out.
--- Both signs do not depend on the current crane pose.
+-- Geometric sense of the two joints, independent of the current crane pose:
+-- signBoomUp = sign of move that raises the main boom, signJibOpen = sign of move that opens the knuckle.
 function JDEasyArmControl.getStickSigns(self, spec)
     local s = spec.slewNode
     local function localPos(node) return worldToLocal(s, getWorldTranslation(node)) end
@@ -201,8 +202,9 @@ end
 function JDEasyArmControl.computeMoves(self, spec)
     local boom, jib, tel1, tel2 = spec.boom, spec.jib, spec.tel1, spec.tel2
 
-    local inY = boom.move or 0
-    local inZ = jib.move or 0
+    -- base game layout (Rottne F20D): main boom axis = in/out, knuckle axis = up/down
+    local inZ = boom.move or 0
+    local inY = jib.move or 0
     local manualTelescope = tel1 ~= nil and (tel1.move or 0) ~= 0
     for _, t in ipairs({boom, jib, tel1, tel2}) do
         spec.moves[t] = 0
@@ -234,8 +236,8 @@ function JDEasyArmControl.computeMoves(self, spec)
     end
 
     -- wanted tip velocity in the crane plane; z sign so that "out" moves away from the column
-    local uy = inY * spec.signBoomUp * (spec.invertY and -1 or 1)
-    local uz = inZ * spec.signJibOpen * (spec.invertZ and -1 or 1)
+    local uy = inY * spec.signJibOpen * (spec.invertY and -1 or 1)
+    local uz = -inZ * spec.signBoomUp * (spec.invertZ and -1 or 1)
     local len = math.sqrt(uy * uy + uz * uz)
     if len > 1 then
         uy, uz = uy / len, uz / len

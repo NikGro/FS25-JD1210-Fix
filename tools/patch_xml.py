@@ -85,7 +85,16 @@ edit(X, [('        <name>JOHNDEERE 1210G</name>', '        <name>JOHNDEERE 1210G
 # easy arm control parameters (read by scripts/JDEasyArmControl.lua)
 edit(X, [('''    </cylindered>''', '''    </cylindered>
 
-    <jdEasyArmControl slewNode="1>2|1" boomNode="1>2|1|0" jibNode="1>2|1|0|0" telescopeNode="1>2|1|0|0|0" telescope2Node="1>2|1|0|0|0|0" tipNode="componentJointGrapple" speed="1.4" invertY="false" invertZ="false"/>''', 1)])
+    <jdEasyArmControl slewNode="1>2|1" boomNode="1>2|1|0" jibNode="1>2|1|0|0" telescopeNode="1>2|1|0|0|0" telescope2Node="1>2|1|0|0|0|0" tipNode="componentJointGrapple" speed="1.3" invertY="false" invertZ="false"/>''', 1)])
+
+
+# 10. cameras like the base game forwarders: outdoor, free indoor and the crane camera on the column;
+#     the extra indoor camera that tracks the grapple goes (camera + its aiming moving part)
+regex(X, r'\n[ \t]*<camera node="folowcamera"[^\n]*', '', 1)
+regex(X, r'\n[ \t]*<movingPart node="0>0\|4\|0\|0\|0\|0\|0\|0\|0\|0\|0\|0\|1\|0\|0\|0\|2" referencePoint="camerafolowpoint"[^\n]*', '', 1)
+
+# 11. no permanent hydraulic base load (the base game Rottne F20D has none either)
+regex(X, r'\n[ \t]*<powerConsumer ptoRpm="350"[^\n]*', '', 1)
 
 print('1210G.xml patched')
 

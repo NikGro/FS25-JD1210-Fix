@@ -71,8 +71,10 @@ local function tip()
     local _, y, z = worldToLocal(slew, getWorldTranslation(tipN))
     return y, math.abs(z)
 end
-local function run(inY, inZ, ms)
-    boom.move, jib.move = inY, inZ
+-- run(up/down, in/out) in stick terms of the base game layout
+local function run(up, out, ms)
+    jib.move = up == 0 and 0 or up * spec.signJibOpen
+    boom.move = out == 0 and 0 or -out * spec.signBoomUp
     for _ = 1, ms / 16 do frame(16) end
     boom.move, jib.move = 0, 0
 end
@@ -80,7 +82,7 @@ end
 -- A: easy control off -> raw joint moves pass through
 JDEasyArmControl.onVehicleSettingChanged(v, "easyArm", false)
 local r0 = boom.curRot[1]
-run(1, 0, 320)
+run(0, 1, 320)
 assert(math.abs(boom.curRot[1] - r0) > 0.1, "A: boom must move directly when easy control is off")
 print("A ok: off = single axes")
 
@@ -96,7 +98,7 @@ JDEasyArmControl.onVehicleSettingChanged(v, "easyArm", true)
 -- B: up only -> tip goes up, reach stays
 reset()
 local y0, z0 = tip()
-run(spec.signBoomUp, 0, 800) -- stick in the direction that raises the main boom
+run(1, 0, 800)
 local y1, z1 = tip()
 print(string.format("B: up 0.8 s: dy=%.3f dz=%.3f", y1 - y0, z1 - z0))
 assert(y1 - y0 > 0.5, "B: tip must rise")
@@ -106,7 +108,7 @@ assert(math.abs(z1 - z0) < 0.06 * (y1 - y0), "B: reach must stay nearly constant
 reset()
 y0, z0 = tip()
 local t0 = tel1.curTrans[3]
-run(0, spec.signJibOpen, 800)
+run(0, 1, 800)
 y1, z1 = tip()
 print(string.format("C: out 0.8 s: dy=%.3f dz=%.3f telescope +%.2f m", y1 - y0, z1 - z0, tel1.curTrans[3] - t0))
 assert(z1 - z0 > 0.5, "C: tip must move out")
@@ -116,10 +118,10 @@ assert(math.abs((tel2.curTrans[3] - 0.5) / (tel1.curTrans[3] - 0.5) - 0.55 / 0.5
 
 -- D: in + down, then full out to the limit: no NaN, stops at reach limit
 reset()
-run(-spec.signBoomUp, -spec.signJibOpen, 1500)
+run(-1, -1, 1500)
 y1, z1 = tip()
 assert(y1 == y1 and z1 == z1, "D: NaN")
-run(0, spec.signJibOpen, 20000)
+run(0, 1, 20000)
 local yM, zM = tip()
 print(string.format("D: max reach %.2f m (height %.2f)", zM, yM))
 assert(zM > 8 and zM < 11.5, "D: max reach plausible")
@@ -147,7 +149,7 @@ print("E/F ok: holds still, manual telescope works")
 -- G: diagonal at speed: tip speed close to 1.4 m/s
 reset()
 y0, z0 = tip()
-run(spec.signBoomUp * 0.7071, spec.signJibOpen * 0.7071, 500)
+run(0.7071, 0.7071, 500)
 y1, z1 = tip()
 local sp = math.sqrt((y1 - y0) ^ 2 + (z1 - z0) ^ 2) / 0.5
 print(string.format("G: diagonal tip speed %.2f m/s", sp))
